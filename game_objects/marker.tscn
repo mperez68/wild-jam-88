@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4vlh1dripvk5"]
+
+[ext_resource type="Texture2D" uid="uid://yiyq461ns1en" path="res://assets/marker.png" id="1_bi44p"]
+[ext_resource type="Script" uid="uid://cv752kvrksbah" path="res://game_objects/scripts/marker.gd" id="2_bi44p"]
+
+[node name="Marker" type="Sprite2D"]
+y_sort_enabled = true
+position = Vector2(32, 32)
+texture = ExtResource("1_bi44p")
+script = ExtResource("2_bi44p")

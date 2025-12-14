@@ -8,7 +8,7 @@ var used_rect: Rect2i
 
 
 # ENGINE
-func _ready():	# TODO
+func _ready():
 	pass
 	var beginning: Vector2 = Vector2(9999, 9999)
 	var end: Vector2 = Vector2.ZERO
@@ -16,8 +16,6 @@ func _ready():	# TODO
 	for layer in get_children():
 		if layer is TileMapLayer:
 			layers.push_back(layer)
-			#ramps.push_back([])
-			#nav.push_back(AStarGrid2D.new())
 			var rect: Rect2i = layer.get_used_rect()
 			beginning.x = min(beginning.x, rect.position.x)
 			beginning.y = min(beginning.y, rect.position.y)

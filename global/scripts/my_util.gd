@@ -18,16 +18,16 @@ func generate_shortcut(key: Key) -> Shortcut:
 	return ret
 
 #
-#func get_map(parent: Node = get_tree().current_scene) -> Map:
-	#if !parent:
-		#return
-	#if parent is Map:
-		#return parent
-	#for child in parent.get_children():
-		#var ret = get_map(child)
-		#if ret != null:
-			#return ret
-	#return null
+func get_map(parent: Node = get_tree().current_scene) -> Map:
+	if !parent:
+		return
+	if parent is Map:
+		return parent
+	for child in parent.get_children():
+		var ret = get_map(child)
+		if ret != null:
+			return ret
+	return null
 
 #func get_positions_in_radius(position: Vector3i, radius: int) -> Array[Vector3i]:
 	#if radius <= 0:

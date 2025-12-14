@@ -4,9 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://bt7332720vtdc" path="res://assets/car.png" id="2_hmjjf"]
 
 [node name="Car" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(32, 32)
 script = ExtResource("1_y2gce")
-grid_3d_position = Vector3i(2, 2, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 scale = Vector2(2, 2)
 texture = ExtResource("2_hmjjf")
