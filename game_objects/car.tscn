@@ -84,6 +84,7 @@ animations = [{
 y_sort_enabled = true
 position = Vector2(32, 32)
 script = ExtResource("1_y2gce")
+max_speed = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 z_index = 1

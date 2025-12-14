@@ -5,7 +5,12 @@ signal action_pressed(action: Car.Action, undo: bool)
 const ACTION_TILE: PackedScene = preload("res://ui/action_tile.tscn")
 
 @onready var action_tile_container: VBoxContainer = %ActionTileContainer
+@onready var turn_timer_label: Label = %TurnTimerLabel
 
+var turn_counter: int = 0:
+	set(value):
+		turn_counter = value
+		turn_timer_label.text = str(turn_counter)
 var action_limit: int = 2
 var action_queue: Array[Car.Action] = []
 
@@ -43,3 +48,7 @@ func _on_undo_button_pressed() -> void:
 func _on_go_button_pressed() -> void:
 	_empty_action_tiles()
 	action_pressed.emit(Car.Action.DO_ACTIONS, false)
+	turn_counter += 1
+
+func _on_camera_button_toggled(toggled_on: bool) -> void:
+	action_pressed.emit(Car.Action.CENTER_CAMERA, toggled_on)

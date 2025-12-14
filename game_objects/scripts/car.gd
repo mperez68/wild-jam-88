@@ -1,7 +1,7 @@
 @tool
 class_name Car extends GridNode2D
 
-enum Action{ ACCELERATE, DECELERATE, TURN_LEFT, TURN_RIGHT, DO_ACTIONS }
+enum Action{ ACCELERATE, DECELERATE, TURN_LEFT, TURN_RIGHT, DO_ACTIONS, CENTER_CAMERA }
 
 const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
 
@@ -9,23 +9,13 @@ const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
 
 @export var acceleration_rate: int = 1
 @export var deceleration_rate: int = 1
+@export var max_speed: int = 8
 @export var friction: int = 2
 
 var next_position_marker: Marker
 var speed: Vector3i = Vector3i.ZERO
 
 # ENGINE
-#func _input(event: InputEvent) -> void:	# TODO temp
-	#if event.is_action_pressed("ui_accept"):
-		#do_actions()
-	#elif event.is_action_pressed("ui_up"):
-		#accelerate(acceleration_rate)
-	#elif event.is_action_pressed("ui_down"):
-		#decelerate(deceleration_rate)
-	#elif event.is_action_pressed("ui_left"):
-		#turn(false)
-	#elif event.is_action_pressed("ui_right"):
-		#turn(true)
 
 
 # PUBLIC
@@ -47,7 +37,11 @@ func turn(right: bool, undo: bool = false):
 func do_actions():
 	smoke_sprite.play("puff")
 	speed += _get_forces()
-	grid_3d_position += speed
+	var new_position: Vector3i = MyUtil.get_map().get_last_valid_to_target(grid_3d_position, grid_3d_position + speed)
+	if new_position != grid_3d_position + speed:
+		speed = Vector3i.ZERO
+		# TODO sfx for crashing into walls
+	grid_3d_position = new_position
 	project_actions()
 
 func project_actions():
@@ -56,7 +50,8 @@ func project_actions():
 	if _get_forces(true) == Vector3i.ZERO:
 		return
 	next_position_marker = MARKER.instantiate()
-	next_position_marker.grid_3d_position = grid_3d_position + _get_forces(true)
+	next_position_marker.grid_3d_position = MyUtil.get_map().get_last_valid_to_target(grid_3d_position, grid_3d_position + _get_forces(true))
+		
 	add_sibling(next_position_marker)
 
 
@@ -82,10 +77,11 @@ func _get_forces(include_speed: bool = false) -> Vector3i:
 	
 	return total_forces + (speed if include_speed else Vector3i.ZERO)
 
+func _center_camera(cancel: bool):
+	SignalBus.center_camera.emit(null if cancel else self)
+
 
 # SIGNALS
-
-
 func _on_smoke_sprite_animation_finished() -> void:
 	if smoke_sprite.animation == "puff":
 		smoke_sprite.play("idle")
@@ -102,3 +98,5 @@ func _on_hud_action_pressed(action: Action, undo: bool) -> void:
 			turn(true, undo)
 		Action.DO_ACTIONS:
 			do_actions()
+		Action.CENTER_CAMERA:
+			_center_camera(undo)

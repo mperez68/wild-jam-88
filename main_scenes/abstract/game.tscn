@@ -1102,7 +1102,7 @@ tile_set = SubResource("TileSet_015wf")
 
 [node name="Car" parent="." instance=ExtResource("3_gehsp")]
 position = Vector2(160, 224)
-acceleration_rate = 2
+max_speed = 8
 grid_3d_position = Vector3i(2, 3, 0)
 
 [connection signal="action_pressed" from="HUD" to="Car" method="_on_hud_action_pressed"]

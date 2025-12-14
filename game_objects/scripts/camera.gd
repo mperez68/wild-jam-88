@@ -22,8 +22,8 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if follow_target:
 		return
-	if event.is_action("ui_left") or event.is_action("ui_right") or event.is_action("ui_up") or event.is_action("ui_down"):
-		pan_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if event.is_action("pan_left") or event.is_action("pan_right") or event.is_action("pan_up") or event.is_action("pan_down"):
+		pan_vector = Input.get_vector("pan_left", "pan_right", "pan_up", "pan_down")
 
 
 # PUBLIC

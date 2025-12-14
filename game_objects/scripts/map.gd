@@ -38,25 +38,25 @@ func _ready():
 						nav.connect_points(id, _grid3d_to_id(pos + Vector3i.LEFT))
 					if nav.has_point(_grid3d_to_id(pos + Vector3i.DOWN)):
 						nav.connect_points(id, _grid3d_to_id(pos + Vector3i.DOWN))
-					if index > 0:
-						# Connect to falloffs
-						if nav.has_point(_grid3d_to_id(pos + Vector3i.LEFT + Vector3i.FORWARD)):
-							nav.add_point(_grid3d_to_id(pos + Vector3i.LEFT), Vector3(pos + Vector3i.LEFT))
-							nav.connect_points(id, _grid3d_to_id(pos + Vector3i.LEFT))
-							nav.connect_points(_grid3d_to_id(pos + Vector3i.LEFT + Vector3i.FORWARD), _grid3d_to_id(pos + Vector3i.LEFT))
-						if nav.has_point(_grid3d_to_id(pos + Vector3i.DOWN + Vector3i.FORWARD)):
-							nav.add_point(_grid3d_to_id(pos + Vector3i.DOWN), Vector3(pos + Vector3i.DOWN))
-							nav.connect_points(id, _grid3d_to_id(pos + Vector3i.DOWN))
-							nav.connect_points(_grid3d_to_id(pos + Vector3i.DOWN + Vector3i.FORWARD), _grid3d_to_id(pos + Vector3i.DOWN))
-						# Connect to climbs
-						if nav.has_point(_grid3d_to_id(pos + Vector3i.RIGHT + Vector3i.FORWARD)):
-							nav.add_point(_grid3d_to_id(pos + Vector3i.RIGHT), Vector3(pos + Vector3i.RIGHT))
-							nav.connect_points(id, _grid3d_to_id(pos + Vector3i.RIGHT))
-							nav.connect_points(_grid3d_to_id(pos + Vector3i.RIGHT + Vector3i.FORWARD), _grid3d_to_id(pos + Vector3i.RIGHT))
-						if nav.has_point(_grid3d_to_id(pos + Vector3i.UP + Vector3i.FORWARD)):
-							nav.add_point(_grid3d_to_id(pos + Vector3i.UP), Vector3(pos + Vector3i.UP))
-							nav.connect_points(id, _grid3d_to_id(pos + Vector3i.UP))
-							nav.connect_points(_grid3d_to_id(pos + Vector3i.UP + Vector3i.FORWARD), _grid3d_to_id(pos + Vector3i.UP))
+					#if index > 0:
+						## Connect to falloffs
+						#if nav.has_point(_grid3d_to_id(pos + Vector3i.LEFT + Vector3i.FORWARD)):
+							#nav.add_point(_grid3d_to_id(pos + Vector3i.LEFT), Vector3(pos + Vector3i.LEFT))
+							#nav.connect_points(id, _grid3d_to_id(pos + Vector3i.LEFT))
+							#nav.connect_points(_grid3d_to_id(pos + Vector3i.LEFT + Vector3i.FORWARD), _grid3d_to_id(pos + Vector3i.LEFT))
+						#if nav.has_point(_grid3d_to_id(pos + Vector3i.DOWN + Vector3i.FORWARD)):
+							#nav.add_point(_grid3d_to_id(pos + Vector3i.DOWN), Vector3(pos + Vector3i.DOWN))
+							#nav.connect_points(id, _grid3d_to_id(pos + Vector3i.DOWN))
+							#nav.connect_points(_grid3d_to_id(pos + Vector3i.DOWN + Vector3i.FORWARD), _grid3d_to_id(pos + Vector3i.DOWN))
+						## Connect to climbs
+						#if nav.has_point(_grid3d_to_id(pos + Vector3i.RIGHT + Vector3i.FORWARD)):
+							#nav.add_point(_grid3d_to_id(pos + Vector3i.RIGHT), Vector3(pos + Vector3i.RIGHT))
+							#nav.connect_points(id, _grid3d_to_id(pos + Vector3i.RIGHT))
+							#nav.connect_points(_grid3d_to_id(pos + Vector3i.RIGHT + Vector3i.FORWARD), _grid3d_to_id(pos + Vector3i.RIGHT))
+						#if nav.has_point(_grid3d_to_id(pos + Vector3i.UP + Vector3i.FORWARD)):
+							#nav.add_point(_grid3d_to_id(pos + Vector3i.UP), Vector3(pos + Vector3i.UP))
+							#nav.connect_points(id, _grid3d_to_id(pos + Vector3i.UP))
+							#nav.connect_points(_grid3d_to_id(pos + Vector3i.UP + Vector3i.FORWARD), _grid3d_to_id(pos + Vector3i.UP))
 
 
 # PUBLIC
@@ -114,15 +114,21 @@ func get_route(start: Vector3i, end: Vector3i, length: int = 9999, start_inclusi
 func can_walk(start: Vector3i, end: Vector3i, length: int = 9999) -> bool:
 	if start == end:
 		return true
-	var cell: TileData = get_cell_tile_data(end)
-	var floor_cell: TileData = get_cell_tile_data(end + Vector3i.FORWARD)
-	if (cell and cell.get_custom_data("ramp")) or (floor_cell and floor_cell.get_custom_data("ramp")):
-		return false
 	var route_length: int = get_route(start, end).size()
 	return route_length > 0 and route_length <= length
 
 func can_see(start: Vector3i, end: Vector3i, length: float = 9999.0) -> bool:
 	return start.distance_to(end) <= length
+
+func get_last_valid_to_target(start: Vector3i, end: Vector3i) -> Vector3i:
+	var best: Vector3i = start
+	var distance: int = abs(start.x - end.x) + abs(start.y - end.y) + abs(start.z - end.z)
+	for i in distance + 1:
+		var sub_diff: Vector3 = lerp(Vector3(start), Vector3(end), float(i) / float(distance))
+		var closest_grid_3d: Vector3i = Vector3i(round(sub_diff.x), round(sub_diff.y), round(sub_diff.z))
+		if get_cell_tile_data(closest_grid_3d):
+			best = closest_grid_3d
+	return best
 
 
 # PRIVATE

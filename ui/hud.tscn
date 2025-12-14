@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1hamfe2olpfm"]
+[gd_scene load_steps=5 format=3 uid="uid://c1hamfe2olpfm"]
 
 [ext_resource type="Script" uid="uid://ckg8crmjihvtg" path="res://ui/scripts/hud.gd" id="1_rbyyf"]
 [ext_resource type="PackedScene" uid="uid://dm2bnda2ccam2" path="res://ui/sfx_button.tscn" id="2_276te"]
 [ext_resource type="PackedScene" uid="uid://17huhevfgy52" path="res://ui/action_tile.tscn" id="3_546lt"]
+[ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="4_7ihmi"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_rbyyf")
@@ -17,36 +18,57 @@ grow_vertical = 2
 [node name="Control" type="Control" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control"]
+[node name="ActionBarContainer" type="HBoxContainer" parent="MarginContainer/Control"]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
+offset_top = -64.0
+offset_right = 336.0
 grow_vertical = 0
 
-[node name="AccelButton" parent="MarginContainer/Control/HBoxContainer" instance=ExtResource("2_276te")]
+[node name="AccelButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
 text = "Accel"
 
-[node name="DecelButton" parent="MarginContainer/Control/HBoxContainer" instance=ExtResource("2_276te")]
+[node name="DecelButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
 text = "Decel"
 
-[node name="LeftButton" parent="MarginContainer/Control/HBoxContainer" instance=ExtResource("2_276te")]
+[node name="LeftButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
 text = "Turn
 Left"
 
-[node name="RightButton" parent="MarginContainer/Control/HBoxContainer" instance=ExtResource("2_276te")]
+[node name="RightButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
 text = "Turn
 Right"
 
-[node name="UndoButton" parent="MarginContainer/Control/HBoxContainer" instance=ExtResource("2_276te")]
+[node name="UndoButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
 text = "Undo"
+
+[node name="OptionsContainer" type="HBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="CameraButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("2_276te")]
+layout_mode = 2
+toggle_mode = true
+text = "Free
+Cam"
+
+[node name="MenuButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("2_276te")]
+layout_mode = 2
+text = "Menu"
 
 [node name="GoButton" parent="MarginContainer/Control" instance=ExtResource("2_276te")]
 custom_minimum_size = Vector2(128, 128)
@@ -82,9 +104,23 @@ layout_mode = 2
 layout_mode = 2
 action = 2
 
-[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/AccelButton" to="." method="_on_button_pressed" binds= [0]]
-[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/DecelButton" to="." method="_on_button_pressed" binds= [1]]
-[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/LeftButton" to="." method="_on_button_pressed" binds= [2]]
-[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/RightButton" to="." method="_on_button_pressed" binds= [3]]
-[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/UndoButton" to="." method="_on_undo_button_pressed"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Control"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 128.0
+
+[node name="TurnTimerLabel" type="Label" parent="MarginContainer/Control/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("4_7ihmi")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/AccelButton" to="." method="_on_button_pressed" binds= [0]]
+[connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/DecelButton" to="." method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/LeftButton" to="." method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/RightButton" to="." method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/UndoButton" to="." method="_on_undo_button_pressed"]
+[connection signal="toggled" from="MarginContainer/Control/OptionsContainer/CameraButton" to="." method="_on_camera_button_toggled"]
 [connection signal="pressed" from="MarginContainer/Control/GoButton" to="." method="_on_go_button_pressed"]
