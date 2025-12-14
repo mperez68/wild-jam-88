@@ -7,7 +7,6 @@ enum Facing{ RIGHT, DOWN, LEFT, UP }
 	set(value):
 		var new_pos = Vector2(value.x, value.y) * MyUtil.GRID_SIZE + (MyUtil.GRID_SIZE / 2)
 		if position != new_pos:
-			facing = find_facing(position, new_pos)
 			position = new_pos
 		grid_3d_position = value
 		z_index = value.z
@@ -28,12 +27,12 @@ func _notification(what):
 
 
 # PUBLIC
-func get_facing_vector_3d() -> Vector3i:
-	var vector_2d: Vector2i = get_facing_vector_2d()
+func get_facing_vector_3d(face: Facing = facing) -> Vector3i:
+	var vector_2d: Vector2i = get_facing_vector_2d(face)
 	return Vector3i(vector_2d.x, vector_2d.y, 0)
 
-func get_facing_vector_2d() -> Vector2i:
-	match facing:
+func get_facing_vector_2d(face: Facing = facing) -> Vector2i:
+	match face:
 		Facing.RIGHT:
 			return Vector2i.RIGHT
 		Facing.LEFT:

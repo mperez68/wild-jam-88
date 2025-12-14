@@ -713,4 +713,5 @@ tile_set = SubResource("TileSet_015wf")
 
 [node name="Car" parent="." instance=ExtResource("3_gehsp")]
 position = Vector2(224, 416)
+friction = null
 grid_3d_position = Vector3i(3, 6, 0)
