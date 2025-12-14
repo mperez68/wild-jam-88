@@ -7,6 +7,10 @@ class_name Camera extends Camera2D
 var pan_vector: Vector2 = Vector2.ZERO
 
 # ENGINE
+func _ready() -> void:
+	SignalBus.center_camera.connect(_on_center_camera)
+	SignalBus.lock_camera.connect(_on_lock_camera)
+
 func _process(delta: float) -> void:
 	if locked:
 		return
@@ -29,3 +33,8 @@ func _input(event: InputEvent) -> void:
 
 
 # SIGNALS
+func _on_center_camera(node: Node2D):
+	follow_target = node
+
+func _on_lock_camera(is_locked: bool):
+	locked = is_locked

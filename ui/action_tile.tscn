@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://17huhevfgy52"]
+
+[ext_resource type="Script" uid="uid://drind7vr7aoqe" path="res://ui/scripts/action_tile.gd" id="1_2td78"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cdjm"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="ActionTile" type="PanelContainer"]
+custom_minimum_size = Vector2(128, 128)
+theme_override_styles/panel = SubResource("StyleBoxFlat_4cdjm")
+script = ExtResource("1_2td78")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TextLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Action"
+horizontal_alignment = 1
+vertical_alignment = 1

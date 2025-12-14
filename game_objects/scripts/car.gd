@@ -1,6 +1,8 @@
 @tool
 class_name Car extends GridNode2D
 
+enum Action{ ACCELERATE, DECELERATE, TURN_LEFT, TURN_RIGHT, DO_ACTIONS }
+
 const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
 
 @onready var smoke_sprite: AnimatedSprite2D = %SmokeSprite
@@ -13,35 +15,34 @@ var next_position_marker: Marker
 var speed: Vector3i = Vector3i.ZERO
 
 # ENGINE
-func _input(event: InputEvent) -> void:	# TODO temp
-	if event.is_action_pressed("ui_accept"):
-		do_actions()
-	elif event.is_action_pressed("ui_up"):
-		accelerate(acceleration_rate)
-	elif event.is_action_pressed("ui_down"):
-		decelerate(deceleration_rate)
-	elif event.is_action_pressed("ui_left"):
-		turn(false)
-	elif event.is_action_pressed("ui_right"):
-		turn(true)
+#func _input(event: InputEvent) -> void:	# TODO temp
+	#if event.is_action_pressed("ui_accept"):
+		#do_actions()
+	#elif event.is_action_pressed("ui_up"):
+		#accelerate(acceleration_rate)
+	#elif event.is_action_pressed("ui_down"):
+		#decelerate(deceleration_rate)
+	#elif event.is_action_pressed("ui_left"):
+		#turn(false)
+	#elif event.is_action_pressed("ui_right"):
+		#turn(true)
 
 
 # PUBLIC
-func accelerate(value: int):
-	speed += get_facing_vector_3d() * value
+func accelerate(value: int, undo: bool = false):
+	speed += get_facing_vector_3d() * value * (-1 if undo else 1)
 	project_actions()
 
-func decelerate(value: int):
-	speed -= get_facing_vector_3d() * value
+func decelerate(value: int, undo: bool = false):
+	speed -= get_facing_vector_3d() * value * (-1 if undo else 1)
 	project_actions()
 
-func turn(right: bool):
-	var new_facing: int = (facing + (1 if right else -1)) % Facing.size()
+func turn(right: bool, undo: bool = false):
+	var new_facing: int = (facing + ( (1 if right else -1) * (-1 if undo else 1) )) % Facing.size()
 	if new_facing < 0:
 		new_facing += Facing.size()
 	facing = (new_facing) as Facing
 	project_actions()
-
 
 func do_actions():
 	smoke_sprite.play("puff")
@@ -88,3 +89,16 @@ func _get_forces(include_speed: bool = false) -> Vector3i:
 func _on_smoke_sprite_animation_finished() -> void:
 	if smoke_sprite.animation == "puff":
 		smoke_sprite.play("idle")
+
+func _on_hud_action_pressed(action: Action, undo: bool) -> void:
+	match action:
+		Action.ACCELERATE:
+			accelerate(acceleration_rate, undo)
+		Action.DECELERATE:
+			decelerate(deceleration_rate, undo)
+		Action.TURN_LEFT:
+			turn(false, undo)
+		Action.TURN_RIGHT:
+			turn(true, undo)
+		Action.DO_ACTIONS:
+			do_actions()

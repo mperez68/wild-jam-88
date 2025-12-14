@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1hamfe2olpfm"]
+
+[ext_resource type="Script" uid="uid://ckg8crmjihvtg" path="res://ui/scripts/hud.gd" id="1_rbyyf"]
+[ext_resource type="PackedScene" uid="uid://dm2bnda2ccam2" path="res://ui/sfx_button.tscn" id="2_276te"]
+[ext_resource type="PackedScene" uid="uid://17huhevfgy52" path="res://ui/action_tile.tscn" id="3_546lt"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_rbyyf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AccelButton" parent="MarginContainer/Control/HBoxContainer" instance=ExtResource("2_276te")]
+layout_mode = 2
+text = "Accel"
+
+[node name="DecelButton" parent="MarginContainer/Control/HBoxContainer" instance=ExtResource("2_276te")]
+layout_mode = 2
+text = "Decel"
+
+[node name="LeftButton" parent="MarginContainer/Control/HBoxContainer" instance=ExtResource("2_276te")]
+layout_mode = 2
+text = "Turn
+Left"
+
+[node name="RightButton" parent="MarginContainer/Control/HBoxContainer" instance=ExtResource("2_276te")]
+layout_mode = 2
+text = "Turn
+Right"
+
+[node name="UndoButton" parent="MarginContainer/Control/HBoxContainer" instance=ExtResource("2_276te")]
+layout_mode = 2
+text = "Undo"
+
+[node name="GoButton" parent="MarginContainer/Control" instance=ExtResource("2_276te")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "GO"
+
+[node name="ActionTileContainer" type="VBoxContainer" parent="MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -68.0
+offset_bottom = -68.0
+grow_vertical = 0
+alignment = 2
+
+[node name="ActionTile" parent="MarginContainer/Control/ActionTileContainer" instance=ExtResource("3_546lt")]
+layout_mode = 2
+
+[node name="ActionTile2" parent="MarginContainer/Control/ActionTileContainer" instance=ExtResource("3_546lt")]
+layout_mode = 2
+action = 2
+
+[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/AccelButton" to="." method="_on_button_pressed" binds= [0]]
+[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/DecelButton" to="." method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/LeftButton" to="." method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/RightButton" to="." method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/UndoButton" to="." method="_on_undo_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/GoButton" to="." method="_on_go_button_pressed"]
