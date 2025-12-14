@@ -3,15 +3,14 @@ class_name Car extends GridNode2D
 
 const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
 
+@onready var smoke_sprite: AnimatedSprite2D = %SmokeSprite
 
-@export var action_limit: int = 2
-@export var acceleration_rate: int = 2
+@export var acceleration_rate: int = 1
 @export var deceleration_rate: int = 1
 @export var friction: int = 2
 
 var next_position_marker: Marker
 var speed: Vector3i = Vector3i.ZERO
-var actions: int = 2
 
 # ENGINE
 func _input(event: InputEvent) -> void:	# TODO temp
@@ -45,9 +44,9 @@ func turn(right: bool):
 
 
 func do_actions():
+	smoke_sprite.play("puff")
 	speed += _get_forces()
 	grid_3d_position += speed
-	actions = action_limit
 	project_actions()
 
 func project_actions():
@@ -63,18 +62,29 @@ func project_actions():
 # PRIVATE
 func _get_forces(include_speed: bool = false) -> Vector3i:
 	var total_forces: Vector3i = Vector3i.ZERO
+	
 	# Lateral Friction
-	if [Facing.UP, Facing.DOWN].has(facing):	# Vertical
-		if speed.x < 0:
-			total_forces.x = friction if speed.x + friction < 0 else -speed.x
-		elif speed.x > 0:
-			total_forces.x = -friction if speed.x - friction > 0 else -speed.x
-	else:										# Horizontal
-		if speed.y < 0:
-			total_forces.y = friction if speed.y + friction < 0 else -speed.y
-		elif speed.y > 0:
-			total_forces.y = -friction if speed.y + friction > 0 else -speed.y
+	var tile: TileData = MyUtil.get_map().get_cell_tile_data(grid_3d_position)
+	var is_frictionless: bool = tile and tile.get_custom_data("frictionless")
+	
+	if !is_frictionless:
+		if [Facing.UP, Facing.DOWN].has(facing):	# Vertical
+			if speed.x < 0:
+				total_forces.x = friction if speed.x + friction < 0 else -speed.x
+			elif speed.x > 0:
+				total_forces.x = -friction if speed.x - friction > 0 else -speed.x
+		else:										# Horizontal
+			if speed.y < 0:
+				total_forces.y = friction if speed.y + friction < 0 else -speed.y
+			elif speed.y > 0:
+				total_forces.y = -friction if speed.y + friction > 0 else -speed.y
+	
 	return total_forces + (speed if include_speed else Vector3i.ZERO)
 
 
 # SIGNALS
+
+
+func _on_smoke_sprite_animation_finished() -> void:
+	if smoke_sprite.animation == "puff":
+		smoke_sprite.play("idle")
