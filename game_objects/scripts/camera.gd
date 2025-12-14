@@ -1,7 +1,7 @@
 class_name Camera extends Camera2D
 
 @export var follow_target: Node2D
-@export var pan_speed: float = 500.0
+@export var pan_speed: float = 750.0
 @export var locked: bool = false
 
 var pan_vector: Vector2 = Vector2.ZERO

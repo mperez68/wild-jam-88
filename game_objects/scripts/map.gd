@@ -28,8 +28,7 @@ func _ready():
 		for x in used_rect.size.x:
 			for y in used_rect.size.y:
 				var cell: TileData = layers[index].get_cell_tile_data(Vector2i(x, y))
-				var floor_cell: TileData = layers[index - 1].get_cell_tile_data(Vector2i(x, y)) if index > 0 else null
-				if !cell and floor_cell and floor_cell.get_custom_data("platform"):
+				if cell:
 					var pos: Vector3i = Vector3i(x, y, index)
 					var id: int = _grid3d_to_id(pos)
 					nav.add_point(id, Vector3(pos))
@@ -38,25 +37,6 @@ func _ready():
 						nav.connect_points(id, _grid3d_to_id(pos + Vector3i.LEFT))
 					if nav.has_point(_grid3d_to_id(pos + Vector3i.DOWN)):
 						nav.connect_points(id, _grid3d_to_id(pos + Vector3i.DOWN))
-					#if index > 0:
-						## Connect to falloffs
-						#if nav.has_point(_grid3d_to_id(pos + Vector3i.LEFT + Vector3i.FORWARD)):
-							#nav.add_point(_grid3d_to_id(pos + Vector3i.LEFT), Vector3(pos + Vector3i.LEFT))
-							#nav.connect_points(id, _grid3d_to_id(pos + Vector3i.LEFT))
-							#nav.connect_points(_grid3d_to_id(pos + Vector3i.LEFT + Vector3i.FORWARD), _grid3d_to_id(pos + Vector3i.LEFT))
-						#if nav.has_point(_grid3d_to_id(pos + Vector3i.DOWN + Vector3i.FORWARD)):
-							#nav.add_point(_grid3d_to_id(pos + Vector3i.DOWN), Vector3(pos + Vector3i.DOWN))
-							#nav.connect_points(id, _grid3d_to_id(pos + Vector3i.DOWN))
-							#nav.connect_points(_grid3d_to_id(pos + Vector3i.DOWN + Vector3i.FORWARD), _grid3d_to_id(pos + Vector3i.DOWN))
-						## Connect to climbs
-						#if nav.has_point(_grid3d_to_id(pos + Vector3i.RIGHT + Vector3i.FORWARD)):
-							#nav.add_point(_grid3d_to_id(pos + Vector3i.RIGHT), Vector3(pos + Vector3i.RIGHT))
-							#nav.connect_points(id, _grid3d_to_id(pos + Vector3i.RIGHT))
-							#nav.connect_points(_grid3d_to_id(pos + Vector3i.RIGHT + Vector3i.FORWARD), _grid3d_to_id(pos + Vector3i.RIGHT))
-						#if nav.has_point(_grid3d_to_id(pos + Vector3i.UP + Vector3i.FORWARD)):
-							#nav.add_point(_grid3d_to_id(pos + Vector3i.UP), Vector3(pos + Vector3i.UP))
-							#nav.connect_points(id, _grid3d_to_id(pos + Vector3i.UP))
-							#nav.connect_points(_grid3d_to_id(pos + Vector3i.UP + Vector3i.FORWARD), _grid3d_to_id(pos + Vector3i.UP))
 
 
 # PUBLIC

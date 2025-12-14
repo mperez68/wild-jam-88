@@ -12,7 +12,7 @@ const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
 @export var max_speed: int = 8
 @export var friction: int = 2
 
-var next_position_marker: Marker
+var next_position_markers: Array[Marker]
 var speed: Vector3i = Vector3i.ZERO
 
 # ENGINE
@@ -45,14 +45,26 @@ func do_actions():
 	project_actions()
 
 func project_actions():
-	if next_position_marker:
-		next_position_marker.queue_free()
+	for marker in next_position_markers:
+		marker.queue_free()
+	next_position_markers.clear()
 	if _get_forces(true) == Vector3i.ZERO:
 		return
-	next_position_marker = MARKER.instantiate()
-	next_position_marker.grid_3d_position = MyUtil.get_map().get_last_valid_to_target(grid_3d_position, grid_3d_position + _get_forces(true))
-		
-	add_sibling(next_position_marker)
+	# Destination Marker
+	next_position_markers.push_back(MARKER.instantiate())
+	next_position_markers.front().grid_3d_position = MyUtil.get_map().get_last_valid_to_target(grid_3d_position, grid_3d_position + _get_forces(true))
+	if next_position_markers.front().grid_3d_position != grid_3d_position + _get_forces(true):
+		next_position_markers.push_back(MARKER.instantiate())
+		next_position_markers.back().grid_3d_position = grid_3d_position + _get_forces(true)
+		next_position_markers.back().modulate = Color.RED
+	# Arrows
+	for pos in MyUtil.get_map().get_route(grid_3d_position, next_position_markers.front().grid_3d_position, 9999, false, false):
+		next_position_markers.push_back(MARKER.instantiate())
+		next_position_markers.back().icon = Marker.Icon.ARROW
+		next_position_markers.back().facing = find_facing_grid_3d(grid_3d_position, next_position_markers.front().grid_3d_position)
+		next_position_markers.back().grid_3d_position = pos
+	for marker in next_position_markers:
+		add_sibling(marker)
 
 
 # PRIVATE
