@@ -1,6 +1,8 @@
 @tool
 class_name Car extends GridNode2D
 
+signal car_moved(car: Car, start: Vector3i, end: Vector3i)
+
 enum Action{ ACCELERATE, DECELERATE, TURN_LEFT, TURN_RIGHT, DO_ACTIONS, CENTER_CAMERA }
 
 const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
@@ -41,6 +43,7 @@ func do_actions():
 	if new_position != grid_3d_position + speed:
 		speed = Vector3i.ZERO
 		# TODO sfx for crashing into walls
+	car_moved.emit(self, grid_3d_position, new_position)
 	grid_3d_position = new_position
 	project_actions()
 

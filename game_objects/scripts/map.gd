@@ -101,6 +101,8 @@ func can_see(start: Vector3i, end: Vector3i, length: float = 9999.0) -> bool:
 	return start.distance_to(end) <= length
 
 func get_last_valid_to_target(start: Vector3i, end: Vector3i) -> Vector3i:
+	if start == end:
+		return end
 	var best: Vector3i = start
 	var distance: int = abs(start.x - end.x) + abs(start.y - end.y) + abs(start.z - end.z)
 	for i in distance + 1:

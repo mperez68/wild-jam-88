@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7y8eiftxdbw0"]
+
+[ext_resource type="Script" uid="uid://b8lenw4f1xfib" path="res://game_objects/scripts/goalpost.gd" id="1_m4uhm"]
+
+[node name="Goalpost" type="Node2D"]
+script = ExtResource("1_m4uhm")
+
+[node name="Line" type="Line2D" parent="."]
+unique_name_in_owner = true
+points = PackedVector2Array(32, 32, 32, 32)

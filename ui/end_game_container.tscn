@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2jdhkrkrea67"]
+
+[ext_resource type="Script" uid="uid://5tl3tu0g67ng" path="res://ui/scripts/end_game_container.gd" id="1_f3fpo"]
+[ext_resource type="PackedScene" uid="uid://dm2bnda2ccam2" path="res://ui/sfx_button.tscn" id="1_o2u4p"]
+
+[node name="EndGameContainer" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f3fpo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="ClearedLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "CLEARED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResetButton" parent="VBoxContainer" instance=ExtResource("1_o2u4p")]
+layout_mode = 2
+text = "RESET"
+
+[connection signal="pressed" from="VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

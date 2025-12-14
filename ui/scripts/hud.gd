@@ -3,9 +3,12 @@ class_name Hud extends CanvasLayer
 signal action_pressed(action: Car.Action, undo: bool)
 
 const ACTION_TILE: PackedScene = preload("res://ui/action_tile.tscn")
+const FLOATING_TEXT: PackedScene = preload("res://ui/floating_text.tscn")
 
 @onready var action_tile_container: VBoxContainer = %ActionTileContainer
 @onready var turn_timer_label: Label = %TurnTimerLabel
+@onready var end_game_container: PanelContainer = %EndGameContainer
+@onready var floatin_text_container: Control = %FloatinTextContainer
 
 var turn_counter: int = 0:
 	set(value):
@@ -52,3 +55,11 @@ func _on_go_button_pressed() -> void:
 
 func _on_camera_button_toggled(toggled_on: bool) -> void:
 	action_pressed.emit(Car.Action.CENTER_CAMERA, toggled_on)
+
+func _on_game_goalpost_cleared(final: bool) -> void:
+	if final:
+		end_game_container.show()
+	else:
+		var new_text: FloatingText = FLOATING_TEXT.instantiate()
+		new_text.text = "GOALPOST CLEARED"
+		floatin_text_container.add_child(new_text)

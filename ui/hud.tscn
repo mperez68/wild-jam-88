@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1hamfe2olpfm"]
+[gd_scene load_steps=6 format=3 uid="uid://c1hamfe2olpfm"]
 
 [ext_resource type="Script" uid="uid://ckg8crmjihvtg" path="res://ui/scripts/hud.gd" id="1_rbyyf"]
 [ext_resource type="PackedScene" uid="uid://dm2bnda2ccam2" path="res://ui/sfx_button.tscn" id="2_276te"]
 [ext_resource type="PackedScene" uid="uid://17huhevfgy52" path="res://ui/action_tile.tscn" id="3_546lt"]
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="4_7ihmi"]
+[ext_resource type="PackedScene" uid="uid://d2jdhkrkrea67" path="res://ui/end_game_container.tscn" id="5_en2x2"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_rbyyf")
@@ -116,6 +117,27 @@ layout_mode = 2
 text = "0"
 label_settings = ExtResource("4_7ihmi")
 horizontal_alignment = 1
+
+[node name="FloatinTextContainer" type="Control" parent="MarginContainer/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="EndGameContainer" parent="MarginContainer/Control" instance=ExtResource("5_en2x2")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = -35.0
+offset_top = -45.5
+offset_right = 35.0
+offset_bottom = 45.5
 
 [connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/AccelButton" to="." method="_on_button_pressed" binds= [0]]
 [connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/DecelButton" to="." method="_on_button_pressed" binds= [1]]
