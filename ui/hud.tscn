@@ -1,10 +1,59 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1hamfe2olpfm"]
+[gd_scene load_steps=18 format=3 uid="uid://c1hamfe2olpfm"]
 
 [ext_resource type="Script" uid="uid://ckg8crmjihvtg" path="res://ui/scripts/hud.gd" id="1_rbyyf"]
 [ext_resource type="PackedScene" uid="uid://dm2bnda2ccam2" path="res://ui/sfx_button.tscn" id="2_276te"]
-[ext_resource type="PackedScene" uid="uid://17huhevfgy52" path="res://ui/action_tile.tscn" id="3_546lt"]
+[ext_resource type="LabelSettings" uid="uid://b53icysq3n5ka" path="res://resources/header_02.tres" id="4_1v5rv"]
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="4_7ihmi"]
 [ext_resource type="PackedScene" uid="uid://d2jdhkrkrea67" path="res://ui/end_game_container.tscn" id="5_en2x2"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_en2x2"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_1v5rv"]
+events = [SubResource("InputEventKey_en2x2")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_1v5rv"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_q43x7"]
+events = [SubResource("InputEventKey_1v5rv")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_srpbi"]
+resource_local_to_scene = true
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_spcu4"]
+events = [SubResource("InputEventKey_srpbi")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_q43x7"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_srpbi"]
+events = [SubResource("InputEventKey_q43x7")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_spcu4"]
+device = -1
+keycode = 53
+unicode = 53
+
+[sub_resource type="Shortcut" id="Shortcut_ff8ar"]
+events = [SubResource("InputEventKey_spcu4")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ff8ar"]
+device = -1
+keycode = 71
+unicode = 103
+
+[sub_resource type="Shortcut" id="Shortcut_b00kl"]
+events = [SubResource("InputEventKey_ff8ar")]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_rbyyf")
@@ -30,24 +79,29 @@ grow_vertical = 0
 
 [node name="AccelButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
+shortcut = SubResource("Shortcut_1v5rv")
 text = "Accel"
 
 [node name="DecelButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
+shortcut = SubResource("Shortcut_q43x7")
 text = "Decel"
 
 [node name="LeftButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
+shortcut = SubResource("Shortcut_spcu4")
 text = "Turn
 Left"
 
 [node name="RightButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
+shortcut = SubResource("Shortcut_srpbi")
 text = "Turn
 Right"
 
 [node name="UndoButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
+shortcut = SubResource("Shortcut_ff8ar")
 text = "Undo"
 
 [node name="OptionsContainer" type="HBoxContainer" parent="MarginContainer/Control"]
@@ -85,25 +139,34 @@ offset_right = 32.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
+shortcut = SubResource("Shortcut_b00kl")
 text = "GO"
 
-[node name="ActionTileContainer" type="VBoxContainer" parent="MarginContainer/Control"]
-unique_name_in_owner = true
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -68.0
-offset_bottom = -68.0
+offset_top = -121.0
+offset_right = 128.0
+offset_bottom = -72.0
 grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/PanelContainer2"]
+layout_mode = 2
 alignment = 2
 
-[node name="ActionTile" parent="MarginContainer/Control/ActionTileContainer" instance=ExtResource("3_546lt")]
+[node name="ActionTileContainer" type="VBoxContainer" parent="MarginContainer/Control/PanelContainer2/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+alignment = 2
 
-[node name="ActionTile2" parent="MarginContainer/Control/ActionTileContainer" instance=ExtResource("3_546lt")]
+[node name="RemainingLabel" type="Label" parent="MarginContainer/Control/PanelContainer2/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-action = 2
+text = "2"
+label_settings = ExtResource("4_1v5rv")
+horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Control"]
 custom_minimum_size = Vector2(128, 128)
@@ -118,15 +181,13 @@ text = "0"
 label_settings = ExtResource("4_7ihmi")
 horizontal_alignment = 1
 
-[node name="FloatinTextContainer" type="Control" parent="MarginContainer/Control"]
+[node name="FloatinTextContainer" type="CenterContainer" parent="MarginContainer/Control"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 256)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -32.0
-offset_right = 32.0
+offset_top = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 

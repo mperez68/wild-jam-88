@@ -9,6 +9,7 @@ class_name FloatingText extends Control
 		text = value
 		if label:
 			label.text = text
+			label.position.x = -label.size.x / 2
 
 
 # ENGINE

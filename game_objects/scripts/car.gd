@@ -12,7 +12,6 @@ const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
 @export var acceleration_rate: int = 1
 @export var deceleration_rate: int = 1
 @export var max_speed: int = 8
-@export var friction: int = 2
 
 var next_position_markers: Array[Marker]
 var speed: Vector3i = Vector3i.ZERO
@@ -76,19 +75,18 @@ func _get_forces(include_speed: bool = false) -> Vector3i:
 	
 	# Lateral Friction
 	var tile: TileData = MyUtil.get_map().get_cell_tile_data(grid_3d_position)
-	var is_frictionless: bool = tile and tile.get_custom_data("frictionless")
-	
-	if !is_frictionless:
-		if [Facing.UP, Facing.DOWN].has(facing):	# Vertical
-			if speed.x < 0:
-				total_forces.x = friction if speed.x + friction < 0 else -speed.x
-			elif speed.x > 0:
-				total_forces.x = -friction if speed.x - friction > 0 else -speed.x
-		else:										# Horizontal
-			if speed.y < 0:
-				total_forces.y = friction if speed.y + friction < 0 else -speed.y
-			elif speed.y > 0:
-				total_forces.y = -friction if speed.y + friction > 0 else -speed.y
+	var friction: int = tile.get_custom_data("friction") if tile else 1
+
+	if [Facing.UP, Facing.DOWN].has(facing):	# Vertical
+		if speed.x < 0:
+			total_forces.x = friction if speed.x + friction < 0 else -speed.x
+		elif speed.x > 0:
+			total_forces.x = -friction if speed.x - friction > 0 else -speed.x
+	else:										# Horizontal
+		if speed.y < 0:
+			total_forces.y = friction if speed.y + friction < 0 else -speed.y
+		elif speed.y > 0:
+			total_forces.y = -friction if speed.y + friction > 0 else -speed.y
 	
 	return total_forces + (speed if include_speed else Vector3i.ZERO)
 

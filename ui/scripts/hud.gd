@@ -9,13 +9,14 @@ const FLOATING_TEXT: PackedScene = preload("res://ui/floating_text.tscn")
 @onready var turn_timer_label: Label = %TurnTimerLabel
 @onready var end_game_container: PanelContainer = %EndGameContainer
 @onready var floatin_text_container: Control = %FloatinTextContainer
+@onready var remaining_label: Label = %RemainingLabel
 
 var turn_counter: int = 0:
 	set(value):
 		turn_counter = value
 		turn_timer_label.text = str(turn_counter)
 var action_limit: int = 2
-var action_queue: Array[Car.Action] = []
+var actions_queued: int = 0
 
 
 # ENGINE
@@ -30,6 +31,11 @@ func _ready() -> void:
 func _empty_action_tiles():
 	for child in action_tile_container.get_children():
 		child.queue_free()
+	actions_queued = 0
+	_update_ap_label()
+
+func _update_ap_label():
+	remaining_label.text = str(action_limit - actions_queued)
 
 
 # SIGNALS
@@ -40,6 +46,8 @@ func _on_button_pressed(action: Car.Action) -> void:
 		new_tile.action = action
 		action_tile_container.add_child(new_tile)
 		action_tile_container.move_child(new_tile, 0)
+		actions_queued += 1
+	_update_ap_label()
 
 func _on_undo_button_pressed() -> void:
 	var children: Array[Node] = action_tile_container.get_children()
@@ -47,6 +55,8 @@ func _on_undo_button_pressed() -> void:
 		var removed_tile = children.pop_front()
 		action_pressed.emit(removed_tile.action, true)
 		removed_tile.queue_free()
+		actions_queued -= 1
+	_update_ap_label()
 
 func _on_go_button_pressed() -> void:
 	_empty_action_tiles()
@@ -61,5 +71,5 @@ func _on_game_goalpost_cleared(final: bool) -> void:
 		end_game_container.show()
 	else:
 		var new_text: FloatingText = FLOATING_TEXT.instantiate()
-		new_text.text = "GOALPOST CLEARED"
+		new_text.text = "GOALPOST\nCLEARED"
 		floatin_text_container.add_child(new_text)

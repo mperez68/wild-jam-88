@@ -198,4 +198,4 @@ script = ExtResource("2_bi44p")
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_8nrli")
 animation = &"center"
-frame_progress = 0.19283007
+frame_progress = 0.25106516
