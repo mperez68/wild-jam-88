@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2jdhkrkrea67"]
+[gd_scene load_steps=4 format=3 uid="uid://d2jdhkrkrea67"]
 
 [ext_resource type="Script" uid="uid://5tl3tu0g67ng" path="res://ui/scripts/end_game_container.gd" id="1_f3fpo"]
 [ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="2_f3fpo"]
+[ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="2_j2dvc"]
 
 [node name="EndGameContainer" type="PanelContainer"]
 anchors_preset = 8
@@ -18,10 +19,23 @@ layout_mode = 2
 alignment = 1
 
 [node name="ClearedLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "CLEARED"
+label_settings = ExtResource("2_j2dvc")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ParContainer" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
 
 [node name="MenuSceneButton" parent="VBoxContainer" instance=ExtResource("2_f3fpo")]
 layout_mode = 2

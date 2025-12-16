@@ -7,16 +7,11 @@ const FLOATING_TEXT: PackedScene = preload("res://ui/floating_text.tscn")
 
 @onready var action_tile_container: VBoxContainer = %ActionTileContainer
 @onready var turn_timer_label: Label = %TurnTimerLabel
-@onready var end_game_container: PanelContainer = %EndGameContainer
 @onready var floatin_text_container: Control = %FloatinTextContainer
 @onready var remaining_label: Label = %RemainingLabel
 @onready var title_text: Label = %TitleText
 @onready var description_text: Label = %DescriptionText
 
-var turn_counter: int = 0:
-	set(value):
-		turn_counter = value
-		turn_timer_label.text = str(turn_counter)
 var action_limit: int = 2
 var actions_queued: int = 0
 
@@ -24,6 +19,7 @@ var actions_queued: int = 0
 # ENGINE
 func _ready() -> void:
 	_empty_action_tiles()
+	SignalBus.end_game.connect(_on_end_game)
 
 
 # PUBLIC
@@ -41,6 +37,13 @@ func _empty_action_tiles():
 
 func _update_ap_label():
 	remaining_label.text = str(action_limit - actions_queued)
+
+func _disable_all_buttons(disable: bool, root: Node = self):
+	for child in root.get_children():
+		if child is Button:
+			child.disabled = disable
+		if !child is EndGameContainer:
+			_disable_all_buttons(disable, child)
 
 
 # SIGNALS
@@ -66,15 +69,15 @@ func _on_undo_button_pressed() -> void:
 func _on_go_button_pressed() -> void:
 	_empty_action_tiles()
 	action_pressed.emit(Car.Action.DO_ACTIONS, false)
-	turn_counter += 1
 
 func _on_camera_button_toggled(toggled_on: bool) -> void:
 	action_pressed.emit(Car.Action.CENTER_CAMERA, toggled_on)
 
 func _on_game_goalpost_cleared(final: bool) -> void:
-	if final:
-		end_game_container.show()
-	else:
+	if !final:
 		var new_text: FloatingText = FLOATING_TEXT.instantiate()
 		new_text.text = "GOALPOST\nCLEARED"
 		floatin_text_container.add_child(new_text)
+
+func _on_end_game(_turns: int, _par: Array[int]):
+	_disable_all_buttons(true)

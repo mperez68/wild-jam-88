@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://wjxke24agq1v"]
+
+[ext_resource type="Script" uid="uid://bt33jl3uhfl6p" path="res://ui/scripts/par_container.gd" id="1_t8q2h"]
+[ext_resource type="Texture2D" uid="uid://bd3bddpnfj83j" path="res://assets/outlines.png" id="2_l2lvr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8a5e"]
+resource_local_to_scene = true
+atlas = ExtResource("2_l2lvr")
+region = Rect2(16, 0, 16, 16)
+
+[node name="ParContainer" type="VBoxContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_t8q2h")
+
+[node name="ParLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "15"
+horizontal_alignment = 1
+
+[node name="StarTextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_x8a5e")
+stretch_mode = 2

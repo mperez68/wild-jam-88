@@ -1161,5 +1161,6 @@ tile_set = SubResource("TileSet_015wf")
 max_speed = 8
 
 [connection signal="goalpost_cleared" from="." to="HUD" method="_on_game_goalpost_cleared"]
+[connection signal="action_pressed" from="HUD" to="." method="_on_hud_action_pressed"]
 [connection signal="action_pressed" from="HUD" to="Car" method="_on_hud_action_pressed"]
 [connection signal="car_moved" from="Car" to="." method="_on_car_moved"]

@@ -10,6 +10,10 @@ signal goalpost_cleared(final: bool)
 @export var par: Array[int] = [5, 10, 15]
 
 var goalposts: Array[Goalpost]
+var turn_counter: int = 0:
+	set(value):
+		turn_counter = value
+		hud.turn_timer_label.text = str(turn_counter)
 
 
 # ENGINE
@@ -26,7 +30,9 @@ func _ready():
 
 # PRIVATE
 func _update_next_goalpost():
-	if !goalposts.is_empty():
+	if goalposts.is_empty():
+		SignalBus.end_game.emit(turn_counter, par)
+	else:
 		goalposts.front().highlight(Goalpost.Highlight.HIGHLIGHT)
 
 
@@ -39,3 +45,7 @@ func _on_car_moved(car: Car, start: Vector3i, end: Vector3i) -> void:
 			_on_car_moved(car, start, end)
 			_update_next_goalpost()
 			break
+
+func _on_hud_action_pressed(action: Car.Action, _undo: bool) -> void:
+	if action == Car.Action.DO_ACTIONS:
+		turn_counter += 1

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://5cjlja5kdgxk"]
+[gd_scene load_steps=4 format=3 uid="uid://5cjlja5kdgxk"]
 
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_7p3sw"]
 [ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="1_do6qc"]
+[ext_resource type="Script" uid="uid://bdthsn7hva42i" path="res://game_objects/scripts/game_title_label.gd" id="2_ayvsf"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -19,10 +20,11 @@ layout_mode = 2
 [node name="TitleContainer" type="PanelContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="Control/VBoxContainer/TitleContainer"]
+[node name="GameTitleLabel" type="Label" parent="Control/VBoxContainer/TitleContainer"]
 layout_mode = 2
 text = "WORKING TITLE"
 label_settings = ExtResource("1_7p3sw")
+script = ExtResource("2_ayvsf")
 
 [node name="ButtonContainer" type="PanelContainer" parent="Control/VBoxContainer"]
 layout_mode = 2

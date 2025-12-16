@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="wild_jam_88"
+config/name="Split Second"
 config/tags=PackedStringArray("game_jam", "proof_of_concept")
 run/main_scene="uid://5cjlja5kdgxk"
 config/features=PackedStringArray("4.5", "Forward Plus")
@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 MyUtil="*res://global/my_util.tscn"
 SignalBus="*res://global/signal_bus.tscn"
 SceneManager="*res://global/scene_manager.tscn"
+GameStateManager="*res://global/game_state_manager.tscn"
 
 [display]
 

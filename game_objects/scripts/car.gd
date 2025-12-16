@@ -8,6 +8,7 @@ enum Action{ ACCELERATE, DECELERATE, TURN_LEFT, TURN_RIGHT, DO_ACTIONS, CENTER_C
 const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
 
 @onready var smoke_sprite: AnimatedSprite2D = %SmokeSprite
+@onready var action_timer: Timer = %ActionTimer
 
 @export var acceleration_rate: int = 1
 @export var deceleration_rate: int = 1
@@ -15,8 +16,18 @@ const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
 
 var next_position_markers: Array[Marker]
 var speed: Vector3i = Vector3i.ZERO
+var action_queue: Array[Action] = []:
+	set(value):
+		action_queue = value
+		if !action_queue.is_empty() and action_timer.is_stopped():
+			action_timer.start()
+		elif action_queue.is_empty():
+			action_timer.stop()
+
 
 # ENGINE
+func _ready():
+	SignalBus.end_game.connect(_on_end_game)
 
 
 # PUBLIC
@@ -113,3 +124,12 @@ func _on_hud_action_pressed(action: Action, undo: bool) -> void:
 			do_actions()
 		Action.CENTER_CAMERA:
 			_center_camera(undo)
+
+func _on_end_game(_turns: int, _par: Array[int]):
+	speed = Vector3i.ZERO
+	action_queue = [Action.TURN_RIGHT, Action.TURN_RIGHT, Action.TURN_RIGHT, Action.TURN_RIGHT,
+			Action.TURN_RIGHT, Action.TURN_RIGHT, Action.TURN_RIGHT, Action.TURN_RIGHT]
+
+func _on_action_timer_timeout() -> void:
+	if !action_queue.is_empty():
+		_on_hud_action_pressed(action_queue.pop_front(), false)
