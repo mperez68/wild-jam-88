@@ -10,6 +10,8 @@ const FLOATING_TEXT: PackedScene = preload("res://ui/floating_text.tscn")
 @onready var end_game_container: PanelContainer = %EndGameContainer
 @onready var floatin_text_container: Control = %FloatinTextContainer
 @onready var remaining_label: Label = %RemainingLabel
+@onready var title_text: Label = %TitleText
+@onready var description_text: Label = %DescriptionText
 
 var turn_counter: int = 0:
 	set(value):
@@ -25,6 +27,9 @@ func _ready() -> void:
 
 
 # PUBLIC
+func set_text(header: String = "", body: String = ""):
+	title_text.text = header
+	description_text.text = body
 
 
 # PRIVATE

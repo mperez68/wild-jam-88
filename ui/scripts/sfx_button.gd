@@ -2,8 +2,6 @@ class_name SfxButton extends Button
 
 
 # ENGINE
-func _ready():
-	pass
 
 
 # PUBLIC
@@ -13,3 +11,5 @@ func _ready():
 
 
 # SIGNALS
+func _on_pressed():
+	print("click sfx")	#TODO

@@ -196,6 +196,7 @@ script = ExtResource("2_bi44p")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_8nrli")
 animation = &"center"
-frame_progress = 0.25106516
+frame_progress = 0.56833214

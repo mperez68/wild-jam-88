@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg34hb48mejim"]
+
+[ext_resource type="PackedScene" uid="uid://dm2bnda2ccam2" path="res://ui/sfx_button.tscn" id="1_ldeq7"]
+[ext_resource type="Script" uid="uid://ru8policdjua" path="res://ui/scripts/level_scene_button.gd" id="2_vg4lu"]
+
+[node name="LevelSceneButton" instance=ExtResource("1_ldeq7")]
+autowrap_mode = 2
+script = ExtResource("2_vg4lu")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

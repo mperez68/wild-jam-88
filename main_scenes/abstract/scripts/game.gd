@@ -3,16 +3,18 @@ class_name Game extends Node2D
 signal goalpost_cleared(final: bool)
 
 @onready var map: Map = %Map
+@onready var hud: Hud = %HUD
 
 @export var level_name: String
 @export_multiline var hint: String
-#@export var 
+@export var par: Array[int] = [5, 10, 15]
 
 var goalposts: Array[Goalpost]
 
 
 # ENGINE
 func _ready():
+	hud.set_text(level_name, hint)
 	for child in get_children():
 		if child is Goalpost:
 			goalposts.push_back(child)

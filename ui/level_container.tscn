@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://casm444bo1u46"]
+
+[ext_resource type="Script" uid="uid://52g7bamq0ch4" path="res://ui/scripts/level_container.gd" id="1_n7oat"]
+[ext_resource type="LabelSettings" uid="uid://rhov6d5kvecf" path="res://resources/header_03.tres" id="2_n7oat"]
+
+[node name="LevelContainer" type="HBoxContainer"]
+offset_right = 192.0
+offset_bottom = 64.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_n7oat")
+
+[node name="TitleLabel" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+label_settings = ExtResource("2_n7oat")
+horizontal_alignment = 1
+vertical_alignment = 1

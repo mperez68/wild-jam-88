@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://cy6bp4jy8l8gd"]
+
+[ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_hqyvo"]
+[ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="1_wam4b"]
+[ext_resource type="PackedScene" uid="uid://casm444bo1u46" path="res://ui/level_container.tscn" id="2_wam4b"]
+[ext_resource type="PackedScene" uid="uid://bixwr405v5170" path="res://main_scenes/levels/tut_01.tscn" id="3_2adev"]
+[ext_resource type="PackedScene" uid="uid://c61gm0ths7iti" path="res://main_scenes/levels/tut_02.tscn" id="4_vl0qh"]
+[ext_resource type="PackedScene" uid="uid://bv4nwnt83lc48" path="res://main_scenes/levels/tut_03.tscn" id="5_a0y8h"]
+[ext_resource type="PackedScene" uid="uid://ct0k3jnylcodk" path="res://main_scenes/levels/tut_04.tscn" id="6_yup17"]
+[ext_resource type="PackedScene" uid="uid://c26k1r7i0rjda" path="res://main_scenes/levels/tut_05.tscn" id="7_xh6qr"]
+
+[node name="LevelSelect" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="MenuSceneButton" parent="Control" instance=ExtResource("1_wam4b")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 96.0
+offset_bottom = 0.0
+grow_vertical = 0
+text = "Main Menu"
+next_scene = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "LEVEL SELECT"
+label_settings = ExtResource("1_hqyvo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="LevelContainer" parent="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 2
+text = "Tutorial"
+levels = Array[PackedScene]([ExtResource("3_2adev"), ExtResource("4_vl0qh"), ExtResource("5_a0y8h"), ExtResource("6_yup17"), ExtResource("7_xh6qr")])
+
+[node name="LevelContainer2" parent="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
+layout_mode = 2
+text = "Easy"
+
+[node name="LevelContainer3" parent="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
+layout_mode = 2
+text = "Medium"
+
+[node name="LevelContainer4" parent="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
+layout_mode = 2
+text = "Hard"
+
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/LevelSceneButton" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/LevelSceneButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@39248" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@39248" method="_on_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@39249" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@39249" method="_on_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@39250" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@39250" method="_on_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@39251" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@39251" method="_on_pressed"]

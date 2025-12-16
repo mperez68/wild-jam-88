@@ -1141,6 +1141,7 @@ sources/0 = SubResource("TileSetAtlasSource_015wf")
 script = ExtResource("1_an34s")
 
 [node name="HUD" parent="." instance=ExtResource("1_nstr0")]
+unique_name_in_owner = true
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(32, 32)

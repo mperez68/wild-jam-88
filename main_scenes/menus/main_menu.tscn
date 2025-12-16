@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://5cjlja5kdgxk"]
+
+[ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_7p3sw"]
+[ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="1_do6qc"]
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+
+[node name="TitleContainer" type="PanelContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Control/VBoxContainer/TitleContainer"]
+layout_mode = 2
+text = "WORKING TITLE"
+label_settings = ExtResource("1_7p3sw")
+
+[node name="ButtonContainer" type="PanelContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+
+[node name="MenuSceneButton3" parent="Control/VBoxContainer/ButtonContainer/VBoxContainer" instance=ExtResource("1_do6qc")]
+layout_mode = 2
+text = "Level Select"
+next_scene = 2
+
+[node name="MenuSceneButton2" parent="Control/VBoxContainer/ButtonContainer/VBoxContainer" instance=ExtResource("1_do6qc")]
+layout_mode = 2
+text = "Options"
+next_scene = 3
+
+[node name="MenuSceneButton" parent="Control/VBoxContainer/ButtonContainer/VBoxContainer" instance=ExtResource("1_do6qc")]
+layout_mode = 2

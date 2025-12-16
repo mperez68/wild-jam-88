@@ -86,7 +86,7 @@ func _get_forces(include_speed: bool = false) -> Vector3i:
 		if speed.y < 0:
 			total_forces.y = friction if speed.y + friction < 0 else -speed.y
 		elif speed.y > 0:
-			total_forces.y = -friction if speed.y + friction > 0 else -speed.y
+			total_forces.y = -friction if speed.y - friction > 0 else -speed.y
 	
 	return total_forces + (speed if include_speed else Vector3i.ZERO)
 

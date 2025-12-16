@@ -12,7 +12,7 @@ config_version=5
 
 config/name="wild_jam_88"
 config/tags=PackedStringArray("game_jam", "proof_of_concept")
-run/main_scene="uid://bgfikyxrkdq4y"
+run/main_scene="uid://5cjlja5kdgxk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,11 +20,12 @@ config/icon="res://icon.svg"
 
 MyUtil="*res://global/my_util.tscn"
 SignalBus="*res://global/signal_bus.tscn"
+SceneManager="*res://global/scene_manager.tscn"
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=960
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [gui]
 

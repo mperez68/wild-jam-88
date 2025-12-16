@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2jdhkrkrea67"]
 
 [ext_resource type="Script" uid="uid://5tl3tu0g67ng" path="res://ui/scripts/end_game_container.gd" id="1_f3fpo"]
-[ext_resource type="PackedScene" uid="uid://dm2bnda2ccam2" path="res://ui/sfx_button.tscn" id="1_o2u4p"]
+[ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="2_f3fpo"]
 
 [node name="EndGameContainer" type="PanelContainer"]
 anchors_preset = 8
@@ -23,8 +23,12 @@ text = "CLEARED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ResetButton" parent="VBoxContainer" instance=ExtResource("1_o2u4p")]
+[node name="MenuSceneButton" parent="VBoxContainer" instance=ExtResource("2_f3fpo")]
 layout_mode = 2
-text = "RESET"
+text = "Level Select"
+next_scene = 2
 
-[connection signal="pressed" from="VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[node name="MenuSceneButton2" parent="VBoxContainer" instance=ExtResource("2_f3fpo")]
+layout_mode = 2
+text = "Main Menu"
+next_scene = 1
