@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbqy3ulnag54"
-path="res://.godot/imported/car.png-d32f5b1402097a8b34a6ade6a9b7d527.ctex"
+uid="uid://bedu544q6ud16"
+path="res://.godot/imported/smoke_poof.png-8887bb3c0f175d232c3164baa6fc4f08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/car.png"
-dest_files=["res://.godot/imported/car.png-d32f5b1402097a8b34a6ade6a9b7d527.ctex"]
+source_file="res://assets/sprites/smoke_poof.png"
+dest_files=["res://.godot/imported/smoke_poof.png-8887bb3c0f175d232c3164baa6fc4f08.ctex"]
 
 [params]
 

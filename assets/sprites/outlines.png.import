@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbqy3ulnag54"
-path="res://.godot/imported/car.png-d32f5b1402097a8b34a6ade6a9b7d527.ctex"
+uid="uid://bd3bddpnfj83j"
+path="res://.godot/imported/outlines.png-c5b062f28eb08535aa3d258a45aaa9e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/car.png"
-dest_files=["res://.godot/imported/car.png-d32f5b1402097a8b34a6ade6a9b7d527.ctex"]
+source_file="res://assets/sprites/outlines.png"
+dest_files=["res://.godot/imported/outlines.png-c5b062f28eb08535aa3d258a45aaa9e3.ctex"]
 
 [params]
 
