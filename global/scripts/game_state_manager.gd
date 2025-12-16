@@ -47,3 +47,4 @@ func _on_end_game(turns: int, par: Array[int]):
 				game_state.level_progress[current_level_category] if game_state.level_progress.has(current_level_category) else 0)
 	current_level_category = ""
 	current_level_value = 0
+	save_game_state()

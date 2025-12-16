@@ -10,6 +10,9 @@ enum Scene{ QUIT, MAIN_MENU, LEVEL_SELECT, OPTIONS }
 
 
 # ENGINE
+func _ready() -> void:
+	if OS.get_name() == "Web" and next_scene == Scene.QUIT:
+		hide()
 
 
 # PUBLIC
