@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://c1hamfe2olpfm"]
+[gd_scene load_steps=20 format=3 uid="uid://c1hamfe2olpfm"]
 
 [ext_resource type="Script" uid="uid://ckg8crmjihvtg" path="res://ui/scripts/hud.gd" id="1_rbyyf"]
 [ext_resource type="PackedScene" uid="uid://dm2bnda2ccam2" path="res://ui/sfx_button.tscn" id="2_276te"]
+[ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="3_1v5rv"]
 [ext_resource type="LabelSettings" uid="uid://b53icysq3n5ka" path="res://resources/header_02.tres" id="4_1v5rv"]
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="4_7ihmi"]
 [ext_resource type="PackedScene" uid="uid://d2jdhkrkrea67" path="res://ui/end_game_container.tscn" id="5_en2x2"]
@@ -136,9 +137,10 @@ toggle_mode = true
 text = "Free
 Cam"
 
-[node name="MenuButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("2_276te")]
+[node name="MenuSceneButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("3_1v5rv")]
 layout_mode = 2
-text = "Menu"
+text = "Main Menu"
+next_scene = 1
 
 [node name="GoButton" parent="MarginContainer/Control" instance=ExtResource("2_276te")]
 custom_minimum_size = Vector2(128, 128)

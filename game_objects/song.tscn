@@ -7,11 +7,14 @@ script = ExtResource("1_dr6f5")
 
 [node name="Intro" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+bus = &"Music"
 
 [node name="Baseline" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+bus = &"Music"
 
 [node name="Overlay" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+bus = &"Music"
 
 [connection signal="finished" from="Intro" to="." method="_on_intro_finished"]
