@@ -27,7 +27,8 @@ var action_queue: Array[Action] = []:
 
 # ENGINE
 func _ready():
-	SignalBus.end_game.connect(_on_end_game)
+	if !Engine.is_editor_hint():
+		SignalBus.end_game.connect(_on_end_game)
 
 
 # PUBLIC

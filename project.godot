@@ -22,6 +22,8 @@ MyUtil="*res://global/my_util.tscn"
 SignalBus="*res://global/signal_bus.tscn"
 SceneManager="*res://global/scene_manager.tscn"
 GameStateManager="*res://global/game_state_manager.tscn"
+SfxManager="*res://global/sfx_manager.tscn"
+MusicManager="*res://global/music_manager.tscn"
 
 [display]
 

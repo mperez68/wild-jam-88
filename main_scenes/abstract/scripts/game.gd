@@ -18,6 +18,7 @@ var turn_counter: int = 0:
 
 # ENGINE
 func _ready():
+	MusicManager.play(MusicManager.Track.LEVEL)
 	hud.set_text(level_name, hint)
 	for child in get_children():
 		if child is Goalpost:

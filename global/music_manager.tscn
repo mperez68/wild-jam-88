@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8h65b23qkfyr"]
+
+[ext_resource type="Script" uid="uid://cdrbfu0tdf8km" path="res://global/scripts/music_manager.gd" id="1_57y8n"]
+[ext_resource type="PackedScene" uid="uid://cviea7da3fax3" path="res://game_objects/song.tscn" id="2_jhamn"]
+[ext_resource type="AudioStream" uid="uid://bkpdlv3ve4lm8" path="res://assets/music/menu.wav" id="3_o51wy"]
+[ext_resource type="AudioStream" uid="uid://cbe04pmalybd6" path="res://assets/music/menu_looped.wav" id="4_dxkax"]
+[ext_resource type="AudioStream" uid="uid://8fm6t1u6gopi" path="res://assets/music/level_looped.wav" id="5_2fxnu"]
+[ext_resource type="AudioStream" uid="uid://b86qp6snbxqgk" path="res://assets/music/level_overlay.wav" id="6_8ub2l"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_57y8n")
+
+[node name="MenuTheme" parent="." instance=ExtResource("2_jhamn")]
+unique_name_in_owner = true
+
+[node name="Intro" parent="MenuTheme" index="0"]
+stream = ExtResource("3_o51wy")
+
+[node name="Baseline" parent="MenuTheme" index="1"]
+stream = ExtResource("4_dxkax")
+
+[node name="LevelTheme" parent="." instance=ExtResource("2_jhamn")]
+unique_name_in_owner = true
+
+[node name="Baseline" parent="LevelTheme" index="1"]
+stream = ExtResource("5_2fxnu")
+
+[node name="Overlay" parent="LevelTheme" index="2"]
+stream = ExtResource("6_8ub2l")
+
+[editable path="MenuTheme"]
+[editable path="LevelTheme"]

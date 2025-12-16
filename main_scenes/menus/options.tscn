@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1k8nkraehsdk"]
+[gd_scene load_steps=5 format=3 uid="uid://b1k8nkraehsdk"]
 
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_h0qrn"]
+[ext_resource type="Script" uid="uid://b1vq6n2eai73y" path="res://main_scenes/scripts/menu.gd" id="1_mynge"]
 [ext_resource type="LabelSettings" uid="uid://b53icysq3n5ka" path="res://resources/header_02.tres" id="2_mynge"]
 [ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="3_h0qrn"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mynge")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2

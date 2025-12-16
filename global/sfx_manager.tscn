@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://em5cutkwwc1a"]
+
+[ext_resource type="Script" uid="uid://c4ga0y3wswf4a" path="res://global/scripts/sfx_manager.gd" id="1_xuqmn"]
+[ext_resource type="AudioStream" uid="uid://1vfrxdli8my1" path="res://assets/sfx/click.wav" id="2_brmga"]
+[ext_resource type="AudioStream" uid="uid://h8mrg8txmppg" path="res://assets/sfx/double_click.wav" id="3_5ksnh"]
+
+[node name="SfxManager" type="Node"]
+script = ExtResource("1_xuqmn")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_brmga")
+
+[node name="DoubleClick" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_5ksnh")

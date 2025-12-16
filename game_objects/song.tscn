@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cviea7da3fax3"]
+
+[ext_resource type="Script" uid="uid://dde0ofgjxn4nx" path="res://game_objects/scripts/song.gd" id="1_dr6f5"]
+
+[node name="Song" type="Node"]
+script = ExtResource("1_dr6f5")
+
+[node name="Intro" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Baseline" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Overlay" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="finished" from="Intro" to="." method="_on_intro_finished"]

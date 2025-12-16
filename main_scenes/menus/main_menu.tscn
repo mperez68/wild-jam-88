@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://5cjlja5kdgxk"]
+[gd_scene load_steps=5 format=3 uid="uid://5cjlja5kdgxk"]
 
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_7p3sw"]
+[ext_resource type="Script" uid="uid://b1vq6n2eai73y" path="res://main_scenes/scripts/menu.gd" id="1_bc2m2"]
 [ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="1_do6qc"]
 [ext_resource type="Script" uid="uid://bdthsn7hva42i" path="res://game_objects/scripts/game_title_label.gd" id="2_ayvsf"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bc2m2")
 
 [node name="Control" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -36,11 +38,17 @@ layout_mode = 2
 layout_mode = 2
 text = "Level Select"
 next_scene = 2
+double_click = null
+silent = null
 
 [node name="MenuSceneButton2" parent="Control/VBoxContainer/ButtonContainer/VBoxContainer" instance=ExtResource("1_do6qc")]
 layout_mode = 2
 text = "Options"
 next_scene = 3
+double_click = null
+silent = null
 
 [node name="MenuSceneButton" parent="Control/VBoxContainer/ButtonContainer/VBoxContainer" instance=ExtResource("1_do6qc")]
 layout_mode = 2
+double_click = null
+silent = null

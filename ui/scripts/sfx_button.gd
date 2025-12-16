@@ -1,5 +1,7 @@
 class_name SfxButton extends Button
 
+@export var double_click: bool = false
+@export var silent: bool = false
 
 # ENGINE
 
@@ -12,4 +14,5 @@ class_name SfxButton extends Button
 
 # SIGNALS
 func _on_pressed():
-	print("click sfx")	#TODO
+	if !silent:
+		SfxManager.play_click(double_click)
