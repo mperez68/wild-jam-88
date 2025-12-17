@@ -10,6 +10,7 @@ const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
 @onready var smoke_sprite: AnimatedSprite2D = %SmokeSprite
 @onready var action_timer: Timer = %ActionTimer
 @onready var move_sfx: AudioStreamPlayer2D = %MoveSfx
+@onready var animation: AnimatedSprite2D = %Animation
 
 @export var acceleration_rate: int = 1
 @export var deceleration_rate: int = 1
@@ -36,14 +37,23 @@ func _ready():
 
 # PUBLIC
 func accelerate(value: int, undo: bool = false):
+	if !undo:
+		animation.play("idle")
+		animation.play("forward")
 	speed += get_facing_vector_3d() * value * (-1 if undo else 1)
 	project_actions()
 
 func decelerate(value: int, undo: bool = false):
+	if !undo:
+		animation.play("idle")
+		animation.play("slow")
 	speed -= get_facing_vector_3d() * value * (-1 if undo else 1)
 	project_actions()
 
 func turn(right: bool, undo: bool = false):
+	if !undo:
+		animation.play("idle")
+		animation.play("right" if right else "left")
 	var new_facing: int = (facing + ( (1 if right else -1) * (-1 if undo else 1) )) % Facing.size()
 	if new_facing < 0:
 		new_facing += Facing.size()
@@ -140,3 +150,7 @@ func _on_end_game(_turns: int, _par: Array[int]):
 func _on_action_timer_timeout() -> void:
 	if !action_queue.is_empty():
 		_on_hud_action_pressed(action_queue.pop_front(), false)
+
+func _on_animation_animation_finished() -> void:
+	if ["forward", "slow", "left", "right"].has(animation.animation):
+		animation.play("idle")
