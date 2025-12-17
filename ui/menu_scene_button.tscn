@@ -8,5 +8,3 @@ custom_minimum_size = Vector2(128, 64)
 text = "Quit"
 script = ExtResource("1_hqf4g")
 next_scene = 0
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]

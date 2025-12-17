@@ -14,6 +14,7 @@ const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
 @export var acceleration_rate: int = 1
 @export var deceleration_rate: int = 1
 @export var max_speed: int = 8
+@export var debug_positions: bool = false
 
 var next_position_markers: Array[Marker]
 var speed: Vector3i = Vector3i.ZERO
@@ -28,6 +29,7 @@ var action_queue: Array[Action] = []:
 
 # ENGINE
 func _ready():
+	super()
 	if !Engine.is_editor_hint():
 		SignalBus.end_game.connect(_on_end_game)
 
@@ -59,6 +61,8 @@ func do_actions():
 	car_moved.emit(self, grid_3d_position, new_position)
 	grid_3d_position = new_position
 	project_actions()
+	if debug_positions:
+		print(grid_3d_position)
 
 func project_actions():
 	for marker in next_position_markers:

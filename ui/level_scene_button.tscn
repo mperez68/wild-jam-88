@@ -6,5 +6,3 @@
 [node name="LevelSceneButton" instance=ExtResource("1_ldeq7")]
 autowrap_mode = 2
 script = ExtResource("2_vg4lu")
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]

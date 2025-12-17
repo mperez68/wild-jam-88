@@ -29,7 +29,7 @@ func _ready():
 # PRIVATE
 func _on_levels_list_changed():
 	if !Engine.is_editor_hint():
-		current_level = GameStateManager.game_state.level_progress[category] if GameStateManager.game_state.level_progress.has(category) else 0
+		current_level = GameStateManager.game_state.level_progress[category] if GameStateManager and GameStateManager.game_state.level_progress.has(category) else 0
 	for child in get_children():
 		if child is LevelSceneButton:
 			child.queue_free()
