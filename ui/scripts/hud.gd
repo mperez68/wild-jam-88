@@ -85,3 +85,6 @@ func _on_game_goalpost_cleared(final: bool) -> void:
 
 func _on_end_game(_turns: int, _par: Array[int]):
 	_disable_all_buttons(true)
+
+func _on_retry_button_pressed() -> void:
+	get_tree().reload_current_scene()

@@ -10,6 +10,7 @@ const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
 @onready var smoke_sprite: AnimatedSprite2D = %SmokeSprite
 @onready var action_timer: Timer = %ActionTimer
 @onready var move_sfx: AudioStreamPlayer2D = %MoveSfx
+@onready var engine_sfx: Array[AudioStreamPlayer2D] = [%Engine1Sfx, %Engine2Sfx, %Engine3Sfx]
 @onready var animation: AnimatedSprite2D = %Animation
 
 @export var acceleration_rate: int = 1
@@ -64,6 +65,7 @@ func turn(right: bool, undo: bool = false):
 func do_actions():
 	smoke_sprite.play("puff")
 	move_sfx.play()
+	engine_sfx.pick_random().play()
 	speed += _get_forces()
 	var new_position: Vector3i = MyUtil.get_map().get_last_valid_to_target(grid_3d_position, grid_3d_position + speed)
 	if new_position != grid_3d_position + speed:

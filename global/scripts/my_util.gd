@@ -1,6 +1,7 @@
 extends Node
 
 # CONSTANTS
+const DEFAULT_WINDOW_DIMENSIONS: Vector2i = Vector2i(1280, 720)
 const GRID_SIZE: Vector2 = Vector2(64, 64)
 const CARDINAL_DIRECTIONS: Array[Vector2i] = [
 	Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT

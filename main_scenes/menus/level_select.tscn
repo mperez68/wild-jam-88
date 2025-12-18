@@ -103,3 +103,10 @@ levels = Array[PackedScene]([ExtResource("10_vl0qh")])
 [node name="LevelContainer4" parent="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
 layout_mode = 2
 category = "Hard"
+
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@112138" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@112138" method="_on_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@112139" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@112139" method="_on_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@112140" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@112140" method="_on_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@112141" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@112141" method="_on_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@112142" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@112142" method="_on_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer2/@Button@112835" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer2/@Button@112835" method="_on_pressed"]

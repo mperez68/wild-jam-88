@@ -139,6 +139,10 @@ toggle_mode = true
 text = "Free
 Cam"
 
+[node name="RetryButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("2_276te")]
+layout_mode = 2
+text = "Retry"
+
 [node name="MenuSceneButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("3_1v5rv")]
 layout_mode = 2
 text = "Main Menu"
@@ -239,4 +243,5 @@ horizontal_alignment = 1
 [connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/RightButton" to="." method="_on_button_pressed" binds= [3]]
 [connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/UndoButton" to="." method="_on_undo_button_pressed"]
 [connection signal="toggled" from="MarginContainer/Control/OptionsContainer/CameraButton" to="." method="_on_camera_button_toggled"]
+[connection signal="pressed" from="MarginContainer/Control/OptionsContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/GoButton" to="." method="_on_go_button_pressed"]
