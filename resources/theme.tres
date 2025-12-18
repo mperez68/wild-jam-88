@@ -1,4 +1,21 @@
-[gd_resource type="Theme" format=3 uid="uid://c4wnlbd1mlp7"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c4wnlbd1mlp7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tekt2"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+bg_color = Color(0, 0, 0, 0.23137255)
+border_width_left = 4
+border_width_top = 2
+border_width_right = 4
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [resource]
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
@@ -7,3 +24,4 @@ MarginContainer/constants/margin_bottom = 32
 MarginContainer/constants/margin_left = 16
 MarginContainer/constants/margin_right = 16
 MarginContainer/constants/margin_top = 32
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_tekt2")
