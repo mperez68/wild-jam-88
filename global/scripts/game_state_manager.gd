@@ -32,6 +32,10 @@ func load_game_state():
 	for volume in game_state.volumes:
 		AudioServer.set_bus_volume_linear(AudioServer.get_bus_index(volume), game_state.volumes[volume])
 
+func reset_progress():
+	game_state.level_progress.clear()
+	save_game_state()
+
 
 # PRIVATE
 

@@ -20,7 +20,11 @@ const BUTTON: PackedScene = preload("res://ui/level_scene_button.tscn")
 # ENGINE
 func _ready():
 	category = category
-	_on_levels_list_changed()
+	#_on_levels_list_changed()
+
+func _exit_tree() -> void:
+	if Engine.is_editor_hint():
+		_clear_buttons()
 
 
 # PUBLIC
@@ -30,9 +34,7 @@ func _ready():
 func _on_levels_list_changed():
 	if !Engine.is_editor_hint():
 		current_level = GameStateManager.game_state.level_progress[category] if GameStateManager and GameStateManager.game_state.level_progress.has(category) else 0
-	for child in get_children():
-		if child is LevelSceneButton:
-			child.queue_free()
+	_clear_buttons()
 	for i in levels.size():
 		if levels[i]:
 			var new_button: LevelSceneButton = BUTTON.instantiate()
@@ -42,6 +44,10 @@ func _on_levels_list_changed():
 			if i > current_level:
 				new_button.disabled = true
 			call_deferred("add_child", new_button)
+
+func _clear_buttons():for child in get_children():
+	if child is LevelSceneButton:
+		child.queue_free()
 
 
 # SIGNALS

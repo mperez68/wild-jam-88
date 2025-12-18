@@ -1,39 +1,39 @@
 [gd_scene load_steps=28 format=3 uid="uid://c4vlh1dripvk5"]
 
-[ext_resource type="Texture2D" uid="uid://yiyq461ns1en" path="res://assets/marker.png" id="1_bi44p"]
+[ext_resource type="Texture2D" uid="uid://yiyq461ns1en" path="res://assets/sprites/marker.png" id="1_bi44p"]
 [ext_resource type="Script" uid="uid://cv752kvrksbah" path="res://game_objects/scripts/marker.gd" id="2_bi44p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bi44p"]
 atlas = ExtResource("1_bi44p")
-region = Rect2(0, 64, 64, 64)
+region = Rect2(0, 66, 64, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y13tw"]
 atlas = ExtResource("1_bi44p")
-region = Rect2(64, 64, 64, 64)
+region = Rect2(64, 66, 64, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0ley"]
 atlas = ExtResource("1_bi44p")
-region = Rect2(128, 64, 64, 64)
+region = Rect2(128, 66, 64, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_254j7"]
 atlas = ExtResource("1_bi44p")
-region = Rect2(192, 64, 64, 64)
+region = Rect2(192, 66, 64, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bq5ib"]
 atlas = ExtResource("1_bi44p")
-region = Rect2(256, 64, 64, 64)
+region = Rect2(256, 66, 64, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_khiou"]
 atlas = ExtResource("1_bi44p")
-region = Rect2(320, 64, 64, 64)
+region = Rect2(320, 66, 64, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yje70"]
 atlas = ExtResource("1_bi44p")
-region = Rect2(384, 64, 64, 64)
+region = Rect2(384, 66, 64, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4vpnn"]
 atlas = ExtResource("1_bi44p")
-region = Rect2(448, 64, 64, 64)
+region = Rect2(448, 66, 64, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h0ub7"]
 atlas = ExtResource("1_bi44p")
@@ -196,7 +196,8 @@ script = ExtResource("2_bi44p")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+z_index = 1
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_8nrli")
-animation = &"center"
-frame_progress = 0.56833214
+animation = &"arrow"
+frame_progress = 0.6191228

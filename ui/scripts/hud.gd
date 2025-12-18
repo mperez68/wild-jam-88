@@ -5,12 +5,13 @@ signal action_pressed(action: Car.Action, undo: bool)
 const ACTION_TILE: PackedScene = preload("res://ui/action_tile.tscn")
 const FLOATING_TEXT: PackedScene = preload("res://ui/floating_text.tscn")
 
-@onready var action_tile_container: VBoxContainer = %ActionTileContainer
+@onready var action_tile_container: HBoxContainer = %ActionTileContainer
 @onready var turn_timer_label: Label = %TurnTimerLabel
 @onready var floatin_text_container: Control = %FloatinTextContainer
 @onready var remaining_label: Label = %RemainingLabel
 @onready var title_text: Label = %TitleText
 @onready var description_text: Label = %DescriptionText
+@onready var undo_button: SfxButton = %UndoButton
 
 var action_limit: int = 2
 var actions_queued: int = 0
@@ -53,22 +54,25 @@ func _on_button_pressed(action: Car.Action) -> void:
 		var new_tile: ActionTile = ACTION_TILE.instantiate()
 		new_tile.action = action
 		action_tile_container.add_child(new_tile)
-		action_tile_container.move_child(new_tile, 0)
 		actions_queued += 1
+		undo_button.show()
 	_update_ap_label()
 
 func _on_undo_button_pressed() -> void:
 	var children: Array[Node] = action_tile_container.get_children()
 	if children.size() > 0:
-		var removed_tile = children.pop_front()
+		var removed_tile = children.pop_back()
 		action_pressed.emit(removed_tile.action, true)
 		removed_tile.queue_free()
 		actions_queued -= 1
+		if actions_queued == 0:
+			undo_button.hide()
 	_update_ap_label()
 
 func _on_go_button_pressed() -> void:
 	_empty_action_tiles()
 	action_pressed.emit(Car.Action.DO_ACTIONS, false)
+	undo_button.hide()
 
 func _on_camera_button_toggled(toggled_on: bool) -> void:
 	action_pressed.emit(Car.Action.CENTER_CAMERA, toggled_on)

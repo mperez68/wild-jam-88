@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy6bp4jy8l8gd"]
+[gd_scene load_steps=14 format=3 uid="uid://cy6bp4jy8l8gd"]
 
 [ext_resource type="Script" uid="uid://b1vq6n2eai73y" path="res://main_scenes/scripts/menu.gd" id="1_2adev"]
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_hqyvo"]
 [ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="1_wam4b"]
 [ext_resource type="PackedScene" uid="uid://casm444bo1u46" path="res://ui/level_container.tscn" id="2_wam4b"]
 [ext_resource type="PackedScene" uid="uid://bixwr405v5170" path="res://main_scenes/levels/tut_01.tscn" id="3_2adev"]
+[ext_resource type="PackedScene" uid="uid://dm2bnda2ccam2" path="res://ui/sfx_button.tscn" id="3_yup17"]
 [ext_resource type="PackedScene" uid="uid://c61gm0ths7iti" path="res://main_scenes/levels/tut_02.tscn" id="4_vl0qh"]
+[ext_resource type="Script" uid="uid://3phndtggsmiu" path="res://ui/scripts/data_reset_button.gd" id="4_xh6qr"]
 [ext_resource type="PackedScene" uid="uid://bv4nwnt83lc48" path="res://main_scenes/levels/tut_03.tscn" id="5_a0y8h"]
 [ext_resource type="PackedScene" uid="uid://ct0k3jnylcodk" path="res://main_scenes/levels/tut_04.tscn" id="6_yup17"]
 [ext_resource type="PackedScene" uid="uid://c26k1r7i0rjda" path="res://main_scenes/levels/tut_05.tscn" id="7_xh6qr"]
@@ -34,6 +36,24 @@ offset_bottom = 0.0
 grow_vertical = 0
 text = "Main Menu"
 next_scene = 1
+
+[node name="DataResetButton" parent="Control" instance=ExtResource("3_yup17")]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Clear Data
+(Cannot Undo)"
+script = ExtResource("4_xh6qr")
 
 [node name="CenterContainer" type="CenterContainer" parent="Control"]
 layout_mode = 1
@@ -83,11 +103,3 @@ levels = Array[PackedScene]([ExtResource("10_vl0qh")])
 [node name="LevelContainer4" parent="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
 layout_mode = 2
 category = "Hard"
-
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/LevelSceneButton" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/LevelSceneButton" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@51651" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@51651" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@51652" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@51652" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@51653" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@51653" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@51654" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@51654" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer2/@Button@59133" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer2/@Button@59133" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer3/LevelSceneButton" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer3/LevelSceneButton" method="_on_pressed"]

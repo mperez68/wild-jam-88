@@ -15,7 +15,14 @@ func _process(delta: float) -> void:
 	if locked:
 		return
 	if follow_target:
-		position = follow_target.position
+		if follow_target is Car:
+			var temp := follow_target.position
+			for marker in follow_target.next_position_markers:
+				temp += marker.position
+			temp = temp / (follow_target.next_position_markers.size() + 1)
+			position = temp
+		else:
+			position = follow_target.position
 	else:
 		position += pan_vector * delta * pan_speed
 

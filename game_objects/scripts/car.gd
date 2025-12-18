@@ -18,6 +18,7 @@ const MARKER: PackedScene = preload("res://game_objects/marker.tscn")
 @export var debug_positions: bool = false
 
 var next_position_markers: Array[Marker]
+var follow_up_marker: Marker
 var speed: Vector3i = Vector3i.ZERO
 var action_queue: Array[Action] = []:
 	set(value):
@@ -78,6 +79,8 @@ func project_actions():
 	for marker in next_position_markers:
 		marker.queue_free()
 	next_position_markers.clear()
+	if follow_up_marker:
+		follow_up_marker.queue_free()
 	if _get_forces(true) == Vector3i.ZERO:
 		return
 	# Destination Marker
@@ -87,6 +90,12 @@ func project_actions():
 		next_position_markers.push_back(MARKER.instantiate())
 		next_position_markers.back().grid_3d_position = grid_3d_position + _get_forces(true)
 		next_position_markers.back().modulate = Color.RED
+	else:
+		# Two Actions Away Marker
+		follow_up_marker = MARKER.instantiate()
+		follow_up_marker.grid_3d_position = next_position_markers.front().grid_3d_position + _get_forces(true, _get_forces(true), next_position_markers.front().grid_3d_position, facing)
+		follow_up_marker.modulate = Color(0.529, 0.808, 0.922, 0.608)
+		add_sibling(follow_up_marker)
 	# Arrows
 	for pos in MyUtil.get_map().get_route(grid_3d_position, next_position_markers.front().grid_3d_position, 9999, false, false):
 		next_position_markers.push_back(MARKER.instantiate())
@@ -98,25 +107,25 @@ func project_actions():
 
 
 # PRIVATE
-func _get_forces(include_speed: bool = false) -> Vector3i:
+func _get_forces(include_speed: bool = false, start_speed: Vector3i = speed, start_position: Vector3i = grid_3d_position, start_facing: Facing = facing) -> Vector3i:
 	var total_forces: Vector3i = Vector3i.ZERO
 	
 	# Lateral Friction
-	var tile: TileData = MyUtil.get_map().get_cell_tile_data(grid_3d_position)
+	var tile: TileData = MyUtil.get_map().get_cell_tile_data(start_position)
 	var friction: int = tile.get_custom_data("friction") if tile else 1
 
-	if [Facing.UP, Facing.DOWN].has(facing):	# Vertical
-		if speed.x < 0:
-			total_forces.x = friction if speed.x + friction < 0 else -speed.x
-		elif speed.x > 0:
-			total_forces.x = -friction if speed.x - friction > 0 else -speed.x
+	if [Facing.UP, Facing.DOWN].has(start_facing):	# Vertical
+		if start_speed.x < 0:
+			total_forces.x = friction if start_speed.x + friction < 0 else -start_speed.x
+		elif start_speed.x > 0:
+			total_forces.x = -friction if start_speed.x - friction > 0 else -start_speed.x
 	else:										# Horizontal
-		if speed.y < 0:
-			total_forces.y = friction if speed.y + friction < 0 else -speed.y
-		elif speed.y > 0:
-			total_forces.y = -friction if speed.y - friction > 0 else -speed.y
+		if start_speed.y < 0:
+			total_forces.y = friction if start_speed.y + friction < 0 else -start_speed.y
+		elif start_speed.y > 0:
+			total_forces.y = -friction if start_speed.y - friction > 0 else -start_speed.y
 	
-	return total_forces + (speed if include_speed else Vector3i.ZERO)
+	return total_forces + (start_speed if include_speed else Vector3i.ZERO)
 
 func _center_camera(cancel: bool):
 	SignalBus.center_camera.emit(null if cancel else self)

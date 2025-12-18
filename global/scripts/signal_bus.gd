@@ -1,7 +1,7 @@
 extends Node
 
 @warning_ignore("unused_signal")
-signal center_camera(node: Node2D)
+signal center_camera(nodes: Node2D)
 @warning_ignore("unused_signal")
 signal lock_camera(is_locked: bool)
 @warning_ignore("unused_signal")

@@ -116,6 +116,8 @@ text = "Turn
 Right"
 
 [node name="UndoButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 shortcut = SubResource("Shortcut_ff8ar")
 text = "Undo"
@@ -165,26 +167,26 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -121.0
-offset_right = 128.0
+offset_top = -200.0
+offset_right = 68.0
 offset_bottom = -72.0
 grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/ActionQueueContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/ActionQueueContainer"]
 layout_mode = 2
-alignment = 2
-
-[node name="ActionTileContainer" type="VBoxContainer" parent="MarginContainer/Control/ActionQueueContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-alignment = 2
 
 [node name="RemainingLabel" type="Label" parent="MarginContainer/Control/ActionQueueContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "2"
 label_settings = ExtResource("4_1v5rv")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionTileContainer" type="HBoxContainer" parent="MarginContainer/Control/ActionQueueContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="TurnCounterContainer" type="PanelContainer" parent="MarginContainer/Control"]
 custom_minimum_size = Vector2(128, 128)
