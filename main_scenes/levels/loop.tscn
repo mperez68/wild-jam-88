@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://deenbnj1sgo27"]
+[gd_scene load_steps=4 format=4 uid="uid://deenbnj1sgo27"]
 
 [ext_resource type="PackedScene" uid="uid://bgfikyxrkdq4y" path="res://main_scenes/abstract/game.tscn" id="1_w8ul6"]
 [ext_resource type="PackedScene" uid="uid://b7y8eiftxdbw0" path="res://game_objects/goalpost.tscn" id="2_e61wc"]
+[ext_resource type="PackedScene" uid="uid://dlcr73jxie354" path="res://game_objects/police_drone.tscn" id="3_e61wc"]
 
 [node name="Game" instance=ExtResource("1_w8ul6")]
 level_name = "Drop-in"
@@ -35,3 +36,45 @@ end = Vector3i(7, 12, 0)
 [node name="Goalpost5" parent="." index="8" instance=ExtResource("2_e61wc")]
 start = Vector3i(13, 8, 0)
 end = Vector3i(13, 12, 0)
+
+[node name="PoliceDrone" parent="." index="9" instance=ExtResource("3_e61wc")]
+position = Vector2(-197, 751)
+
+[node name="PoliceDrone2" parent="." index="10" instance=ExtResource("3_e61wc")]
+position = Vector2(-263, 523)
+
+[node name="PoliceDrone3" parent="." index="11" instance=ExtResource("3_e61wc")]
+position = Vector2(-282, 236)
+
+[node name="PoliceDrone4" parent="." index="12" instance=ExtResource("3_e61wc")]
+position = Vector2(-179, 55)
+
+[node name="PoliceDrone5" parent="." index="13" instance=ExtResource("3_e61wc")]
+position = Vector2(27, -80)
+
+[node name="PoliceDrone6" parent="." index="14" instance=ExtResource("3_e61wc")]
+position = Vector2(238, -126)
+
+[node name="PoliceDrone7" parent="." index="15" instance=ExtResource("3_e61wc")]
+position = Vector2(473, -139)
+
+[node name="PoliceDrone8" parent="." index="16" instance=ExtResource("3_e61wc")]
+position = Vector2(615, -65)
+
+[node name="PoliceDrone9" parent="." index="17" instance=ExtResource("3_e61wc")]
+position = Vector2(820, 57)
+
+[node name="PoliceDrone10" parent="." index="18" instance=ExtResource("3_e61wc")]
+position = Vector2(912, 230)
+
+[node name="PoliceDrone11" parent="." index="19" instance=ExtResource("3_e61wc")]
+position = Vector2(916, 407)
+
+[node name="PoliceDrone12" parent="." index="20" instance=ExtResource("3_e61wc")]
+position = Vector2(818, 608)
+
+[node name="PoliceDrone13" parent="." index="21" instance=ExtResource("3_e61wc")]
+position = Vector2(549, 895)
+
+[node name="PoliceDrone14" parent="." index="22" instance=ExtResource("3_e61wc")]
+position = Vector2(179, 891)

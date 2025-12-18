@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=4 uid="uid://cy6bp4jy8l8gd"]
+[gd_scene load_steps=23 format=4 uid="uid://cy6bp4jy8l8gd"]
 
 [ext_resource type="Script" uid="uid://b1vq6n2eai73y" path="res://main_scenes/scripts/menu.gd" id="1_2adev"]
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_hqyvo"]
 [ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="1_wam4b"]
+[ext_resource type="Texture2D" uid="uid://bd3bddpnfj83j" path="res://assets/sprites/outlines.png" id="2_iwen1"]
 [ext_resource type="TileSet" uid="uid://dv2v027pt8d44" path="res://resources/tilemap.tres" id="2_nws1h"]
 [ext_resource type="PackedScene" uid="uid://casm444bo1u46" path="res://ui/level_container.tscn" id="2_wam4b"]
 [ext_resource type="PackedScene" uid="uid://bixwr405v5170" path="res://main_scenes/levels/tut_01.tscn" id="3_2adev"]
@@ -21,6 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://bb6jq5gxyk5y6" path="res://main_scenes/levels/threading.tscn" id="16_gy038"]
 [ext_resource type="PackedScene" uid="uid://dvhvr6n1ildno" path="res://main_scenes/levels/three-sixty.tscn" id="17_g0fov"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmfmq"]
+atlas = ExtResource("2_iwen1")
+region = Rect2(48, 0, 16, 16)
+margin = Rect2(-4, -4, -8, -8)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -32,6 +38,16 @@ tile_map_data = PackedByteArray("AAATAAoAAwACABIAAAATAAkAAwACAAcAAAATAAgAAwACAAU
 tile_set = ExtResource("2_nws1h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(0.25882354, 0.25882354, 0.25882354, 0.34117648)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_kmfmq")
 
 [node name="LevelSelect" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -123,7 +139,3 @@ levels = Array[PackedScene]([ExtResource("16_gy038")])
 layout_mode = 2
 category = "Hard"
 levels = Array[PackedScene]([ExtResource("10_vl0qh"), ExtResource("17_g0fov")])
-
-[connection signal="pressed" from="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer3/LevelSceneButton" to="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer3/LevelSceneButton" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer4/LevelSceneButton" to="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer4/LevelSceneButton" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer4/@Button@133767" to="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer4/@Button@133767" method="_on_pressed"]

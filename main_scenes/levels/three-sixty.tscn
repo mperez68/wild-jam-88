@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://dvhvr6n1ildno"]
+[gd_scene load_steps=4 format=4 uid="uid://dvhvr6n1ildno"]
 
 [ext_resource type="PackedScene" uid="uid://bgfikyxrkdq4y" path="res://main_scenes/abstract/game.tscn" id="1_6a5g6"]
 [ext_resource type="PackedScene" uid="uid://b7y8eiftxdbw0" path="res://game_objects/goalpost.tscn" id="2_7w35f"]
+[ext_resource type="PackedScene" uid="uid://dlcr73jxie354" path="res://game_objects/police_drone.tscn" id="3_k2kvv"]
 
 [node name="Game" instance=ExtResource("1_6a5g6")]
 level_name = "TreeSitty"
@@ -43,3 +44,15 @@ end = Vector3i(13, 8, 0)
 [node name="Goalpost7" parent="." index="10" instance=ExtResource("2_7w35f")]
 start = Vector3i(14, 12, 0)
 end = Vector3i(16, 12, 0)
+
+[node name="PoliceDrone" parent="." index="11" instance=ExtResource("3_k2kvv")]
+position = Vector2(-204, 1106)
+
+[node name="PoliceDrone2" parent="." index="12" instance=ExtResource("3_k2kvv")]
+position = Vector2(1117, 1067)
+
+[node name="PoliceDrone3" parent="." index="13" instance=ExtResource("3_k2kvv")]
+position = Vector2(1224, -94)
+
+[node name="PoliceDrone4" parent="." index="14" instance=ExtResource("3_k2kvv")]
+position = Vector2(-179, -55)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://wwww7tn8xmin"]
+[gd_scene load_steps=4 format=4 uid="uid://wwww7tn8xmin"]
 
 [ext_resource type="PackedScene" uid="uid://bgfikyxrkdq4y" path="res://main_scenes/abstract/game.tscn" id="1_grr4t"]
 [ext_resource type="PackedScene" uid="uid://b7y8eiftxdbw0" path="res://game_objects/goalpost.tscn" id="2_rcxtg"]
+[ext_resource type="PackedScene" uid="uid://dlcr73jxie354" path="res://game_objects/police_drone.tscn" id="3_so7x6"]
 
 [node name="Game" instance=ExtResource("1_grr4t")]
 level_name = "Sidewinder"
@@ -49,3 +50,15 @@ end = Vector3i(1, 4, 0)
 [node name="Goalpost9" parent="." index="12" instance=ExtResource("2_rcxtg")]
 start = Vector3i(10, 2, 0)
 end = Vector3i(10, 3, 0)
+
+[node name="PoliceDrone" parent="." index="13" instance=ExtResource("3_so7x6")]
+position = Vector2(-104, 662)
+
+[node name="PoliceDrone2" parent="." index="14" instance=ExtResource("3_so7x6")]
+position = Vector2(345, 706)
+
+[node name="PoliceDrone3" parent="." index="15" instance=ExtResource("3_so7x6")]
+position = Vector2(785, 653)
+
+[node name="PoliceDrone4" parent="." index="16" instance=ExtResource("3_so7x6")]
+position = Vector2(872, 416)

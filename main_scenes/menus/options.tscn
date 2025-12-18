@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=4 uid="uid://b1k8nkraehsdk"]
+[gd_scene load_steps=9 format=4 uid="uid://b1k8nkraehsdk"]
 
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_h0qrn"]
 [ext_resource type="Script" uid="uid://b1vq6n2eai73y" path="res://main_scenes/scripts/menu.gd" id="1_mynge"]
 [ext_resource type="TileSet" uid="uid://dv2v027pt8d44" path="res://resources/tilemap.tres" id="2_4nrl5"]
+[ext_resource type="Texture2D" uid="uid://bd3bddpnfj83j" path="res://assets/sprites/outlines.png" id="2_22x1k"]
 [ext_resource type="LabelSettings" uid="uid://b53icysq3n5ka" path="res://resources/header_02.tres" id="2_mynge"]
 [ext_resource type="Script" uid="uid://dwtgjnff0r5si" path="res://ui/scripts/volume_container.gd" id="3_fp2u5"]
 [ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="3_h0qrn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfpcp"]
+atlas = ExtResource("2_22x1k")
+region = Rect2(48, 0, 16, 16)
+margin = Rect2(-4, -4, -8, -8)
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,6 +24,16 @@ tile_map_data = PackedByteArray("AAATAAoAAwADAAEAAAATAAkAAwADAAEAAAATAAgAAwADAAE
 tile_set = ExtResource("2_4nrl5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(0.25882354, 0.25882354, 0.25882354, 0.34117648)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_wfpcp")
 
 [node name="Options" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
