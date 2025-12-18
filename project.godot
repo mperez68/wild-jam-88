@@ -29,6 +29,7 @@ MusicManager="*res://global/music_manager.tscn"
 
 window/size/viewport_width=1280
 window/size/viewport_height=768
+window/stretch/mode="viewport"
 
 [gui]
 

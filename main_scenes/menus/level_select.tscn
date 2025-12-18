@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cy6bp4jy8l8gd"]
+[gd_scene load_steps=21 format=4 uid="uid://cy6bp4jy8l8gd"]
 
 [ext_resource type="Script" uid="uid://b1vq6n2eai73y" path="res://main_scenes/scripts/menu.gd" id="1_2adev"]
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_hqyvo"]
@@ -14,8 +14,26 @@
 [ext_resource type="PackedScene" uid="uid://c26k1r7i0rjda" path="res://main_scenes/levels/tut_05.tscn" id="7_xh6qr"]
 [ext_resource type="PackedScene" uid="uid://dmlgli026xfvw" path="res://main_scenes/levels/akirav2.tscn" id="10_a0y8h"]
 [ext_resource type="PackedScene" uid="uid://wwww7tn8xmin" path="res://main_scenes/levels/sidewinder.tscn" id="10_vl0qh"]
+[ext_resource type="PackedScene" uid="uid://bpbxiu3hi7dcx" path="res://main_scenes/levels/sidestep.tscn" id="14_5gaq1"]
+[ext_resource type="PackedScene" uid="uid://d4mssohuolg7v" path="res://main_scenes/levels/candy_cane.tscn" id="15_7wq28"]
+[ext_resource type="PackedScene" uid="uid://deenbnj1sgo27" path="res://main_scenes/levels/loop.tscn" id="15_mvpo0"]
+[ext_resource type="PackedScene" uid="uid://bwr4lisef3623" path="res://main_scenes/levels/forward_is_reverse.tscn" id="16_2ib2g"]
+[ext_resource type="PackedScene" uid="uid://bb6jq5gxyk5y6" path="res://main_scenes/levels/threading.tscn" id="16_gy038"]
+[ext_resource type="PackedScene" uid="uid://dvhvr6n1ildno" path="res://main_scenes/levels/three-sixty.tscn" id="17_g0fov"]
 
-[node name="LevelSelect" type="MarginContainer"]
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(2, 2)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAATAAoAAwACABIAAAATAAkAAwACAAcAAAATAAgAAwACAAUAAAATAAcAAwACABYAAAATAAYAAwACABAAAAATAAUAAwACAAsAAAATAAQAAwACAA8AAAATAAMAAwACAAcAAAATAAIAAwACAAUAAAATAAEAAwACAA0AAAATAAAAAwACAAMAAAASAAoAAwABAA0AAAASAAkAAwABAAcAAAASAAgAAwABAAUAAAASAAcAAwABAAwAAAASAAYAAwABAAsAAAASAAUAAwABAAsAAAASAAQAAwABABQAAAASAAMAAwABAAcAAAASAAIAAwABAAUAAAASAAEAAwABAA0AAAASAAAAAwABAAMAAAARAAoAAwABAA0AAAARAAkAAwABAAcAAAARAAgAAwABAAUAAAARAAcAAwABAAwAAAARAAYAAwABAAsAAAARAAUAAwABAAsAAAARAAQAAwABAAoAAAARAAMAAwABAAcAAAARAAIAAwABAAUAAAARAAEAAwABAA0AAAARAAAAAwABAAMAAAAQAAoAAwABABcAAAAQAAkAAwABAAcAAAAQAAgAAwABAAUAAAAQAAcAAwAAAAwAAAAQAAYAAwAAABUAAAAQAAUAAwAAABAAAAAQAAQAAwAAAA8AAAAQAAMAAwABAAcAAAAQAAIAAwABAAUAAAAQAAEAAwABABcAAAAQAAAAAwABAAMAAAAPAAoAAwABAA0AAAAPAAkAAwAAAAcAAAAPAAgAAwAAAAUAAAAPAAcAAwACAAIAAAAPAAYAAwACAAEAAAAPAAUAAwACAAEAAAAPAAQAAwACAAAAAAAPAAMAAwAAAAcAAAAPAAIAAwAAAAUAAAAPAAEAAwABAA0AAAAPAAAAAwABAAMAAAAOAAoAAwABAA0AAAAOAAkAAwACAAIAAAAOAAgAAwACAAEAAAAOAAcAAwAFAAEAAAAOAAYAAwABAAEAAAAOAAUAAwABAAEAAAAOAAQAAwAFAAIAAAAOAAMAAwACAAEAAAAOAAIAAwACAAAAAAAOAAEAAwABAA0AAAAOAAAAAwABAAMAAAANAAoAAwABAA0AAAANAAkAAwABAAIAAAANAAgAAwABAAEAAAANAAcAAwABAAEAAAANAAYAAwABAAEAAAANAAUAAwABAAEAAAANAAQAAwABAAEAAAANAAMAAwABAAEAAAANAAIAAwABAAAAAAANAAEAAwABAA0AAAANAAAAAwABAAMAAAAMAAoAAwABABcAAAAMAAkAAwABAAIAAAAMAAgAAwABAAEAAAAMAAcAAwABAAEAAAAMAAYAAwABAAEAAAAMAAUAAwABAAEAAAAMAAQAAwABAAEAAAAMAAMAAwABAAEAAAAMAAIAAwABAAAAAAAMAAEAAwABABcAAAAMAAAAAwABAAMAAAALAAoAAwABABIAAAALAAkAAwABAAIAAAALAAgAAwABAAEAAAALAAcAAwABAAEAAAALAAYAAwABAAEAAAALAAUAAwABAAEAAAALAAQAAwABAAEAAAALAAMAAwABAAEAAAALAAIAAwABAAAAAAALAAEAAwABAA0AAAALAAAAAwABAAMAAAAKAAoAAwABABcAAAAKAAkAAwABAAIAAAAKAAgAAwABAAEAAAAKAAcAAwABAAEAAAAKAAYAAwABAAEAAAAKAAUAAwABAAEAAAAKAAQAAwABAAEAAAAKAAMAAwABAAEAAAAKAAIAAwABAAAAAAAKAAEAAwABAA0AAAAKAAAAAwABAAMAAAAJAAoAAwABAA0AAAAJAAkAAwABAAIAAAAJAAgAAwABAAEAAAAJAAcAAwABAAEAAAAJAAYAAwABAAEAAAAJAAUAAwABAAEAAAAJAAQAAwABAAEAAAAJAAMAAwABAAEAAAAJAAIAAwABAAAAAAAJAAEAAwABABIAAAAJAAAAAwABAAMAAAAIAAoAAwABABIAAAAIAAkAAwABAAIAAAAIAAgAAwABAAEAAAAIAAcAAwABAAEAAAAIAAYAAwABAAEAAAAIAAUAAwABAAEAAAAIAAQAAwABAAEAAAAIAAMAAwABAAEAAAAIAAIAAwABAAAAAAAIAAEAAwABAA0AAAAIAAAAAwABAAMAAAAHAAoAAwABABcAAAAHAAkAAwABAAIAAAAHAAgAAwABAAEAAAAHAAcAAwABAAEAAAAHAAYAAwABAAEAAAAHAAUAAwABAAEAAAAHAAQAAwABAAEAAAAHAAMAAwABAAEAAAAHAAIAAwABAAAAAAAHAAEAAwABABIAAAAHAAAAAwABAAMAAAAGAAoAAwABAA0AAAAGAAkAAwABAAIAAAAGAAgAAwABAAEAAAAGAAcAAwABAAEAAAAGAAYAAwABAAEAAAAGAAUAAwABAAEAAAAGAAQAAwABAAEAAAAGAAMAAwABAAEAAAAGAAIAAwABAAAAAAAGAAEAAwABABIAAAAGAAAAAwABAAMAAAAFAAoAAwABABcAAAAFAAkAAwAAAAIAAAAFAAgAAwAAAAEAAAAFAAcAAwAGAAEAAAAFAAYAAwABAAEAAAAFAAUAAwABAAEAAAAFAAQAAwAGAAIAAAAFAAMAAwAAAAEAAAAFAAIAAwAAAAAAAAAFAAEAAwABABIAAAAFAAAAAwABAAMAAAAEAAoAAwABABcAAAAEAAkAAwACAAcAAAAEAAgAAwACAAUAAAAEAAcAAwAAAAIAAAAEAAYAAwAAAAEAAAAEAAUAAwAAAAEAAAAEAAQAAwAAAAAAAAAEAAMAAwACAAcAAAAEAAIAAwACAAUAAAAEAAEAAwABABIAAAAEAAAAAwABAAMAAAADAAoAAwABAA0AAAADAAkAAwABAAcAAAADAAgAAwABAAUAAAADAAcAAwACABYAAAADAAYAAwACABAAAAADAAUAAwACABAAAAADAAQAAwACAA8AAAADAAMAAwABAAcAAAADAAIAAwABAAUAAAADAAEAAwABAA0AAAADAAAAAwABAAMAAAACAAoAAwABABcAAAACAAkAAwABAAcAAAACAAgAAwABAAUAAAACAAcAAwABABYAAAACAAYAAwABAAsAAAACAAUAAwABAAsAAAACAAQAAwABAA8AAAACAAMAAwABAAcAAAACAAIAAwABAAUAAAACAAEAAwABABIAAAACAAAAAwABAAMAAAABAAoAAwABABIAAAABAAkAAwABAAcAAAABAAgAAwABAAUAAAABAAcAAwABABEAAAABAAYAAwABAAsAAAABAAUAAwABAAsAAAABAAQAAwABABQAAAABAAMAAwABAAcAAAABAAIAAwABAAUAAAABAAEAAwABABcAAAABAAAAAwABAAMAAAAAAAoAAwAAAA0AAAAAAAkAAwAAAAcAAAAAAAgAAwAAAAUAAAAAAAcAAwAAAAwAAAAAAAYAAwAAABUAAAAAAAUAAwAAABUAAAAAAAQAAwAAAAoAAAAAAAMAAwAAAAcAAAAAAAIAAwAAAAUAAAAAAAEAAwAAABcAAAAAAAAAAwAAAAMAAAARAAsAAwABAAMAAAAQAAsAAwABAAMAAAAPAAsAAwABAAMAAAAOAAsAAwABAAMAAAANAAsAAwABAAMAAAAMAAsAAwABAAMAAAALAAsAAwABAAMAAAAKAAsAAwABAAMAAAAJAAsAAwABAAMAAAAIAAsAAwABAAMAAAAHAAsAAwABAAMAAAAGAAsAAwABAAMAAAAFAAsAAwABAAMAAAAEAAsAAwABAAMAAAATAAsAAwACAAMAAAASAAsAAwABAAMAAAADAAsAAwABAAMAAAACAAsAAwABAAMAAAABAAsAAwABAAMAAAAAAAsAAwAAAAMAAAA=")
+tile_set = ExtResource("2_nws1h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelSelect" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,14 +41,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2adev")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAATAAoAAQAAAAUAAAATAAkAAQACAAkAAAATAAgAAQACAAcAAAATAAcAAQAAAAUAAAATAAYAAQAAAAUAAAATAAUAAQAAAAUAAAATAAQAAQAAAAUAAAATAAMAAQACAAkAAAATAAIAAQACAAcAAAATAAEAAQAAAAUAAAATAAAAAQACAAMAAAASAAoAAQAAAAUAAAASAAkAAQABAAkAAAASAAgAAQABAAcAAAASAAcAAQAAAAUAAAASAAYAAQAAAAUAAAASAAUAAQAAAAUAAAASAAQAAQAAAAUAAAASAAMAAQABAAkAAAASAAIAAQABAAcAAAASAAEAAQAAAAUAAAASAAAAAQABAAMAAAARAAoAAQAAAAUAAAARAAkAAQABAAkAAAARAAgAAQABAAcAAAARAAcAAQAAAAUAAAARAAYAAQAAAAUAAAARAAUAAQAAAAUAAAARAAQAAQAAAAUAAAARAAMAAQABAAkAAAARAAIAAQABAAcAAAARAAEAAQAAAAUAAAARAAAAAQABAAMAAAAQAAoAAQAAAAUAAAAQAAkAAQABAAkAAAAQAAgAAQABAAcAAAAQAAcAAQAAAAUAAAAQAAYAAQAAAAUAAAAQAAUAAQAAAAUAAAAQAAQAAQAAAAUAAAAQAAMAAQABAAkAAAAQAAIAAQABAAcAAAAQAAEAAQAAAAUAAAAQAAAAAQABAAMAAAAPAAoAAQAAAAUAAAAPAAkAAQAAAAkAAAAPAAgAAQAAAAcAAAAPAAcAAQAAAAUAAAAPAAYAAQAAAAUAAAAPAAUAAQAAAAUAAAAPAAQAAQAAAAUAAAAPAAMAAQAAAAkAAAAPAAIAAQAAAAcAAAAPAAEAAQAAAAUAAAAPAAAAAQABAAMAAAAOAAoAAQAAAAUAAAAOAAkAAQACAAIAAAAOAAgAAQACAAEAAAAOAAcAAQACAAEAAAAOAAYAAQACAAEAAAAOAAUAAQACAAEAAAAOAAQAAQACAAEAAAAOAAMAAQACAAEAAAAOAAIAAQACAAAAAAAOAAEAAQAAAAUAAAAOAAAAAQABAAMAAAANAAoAAQAAAAUAAAANAAkAAQABAAIAAAANAAgAAQABAAEAAAANAAcAAQABAAEAAAANAAYAAQABAAEAAAANAAUAAQABAAEAAAANAAQAAQABAAEAAAANAAMAAQABAAEAAAANAAIAAQABAAAAAAANAAEAAQAAAAUAAAANAAAAAQABAAMAAAAMAAoAAQAAAAUAAAAMAAkAAQABAAIAAAAMAAgAAQABAAEAAAAMAAcAAQABAAEAAAAMAAYAAQABAAEAAAAMAAUAAQABAAEAAAAMAAQAAQABAAEAAAAMAAMAAQABAAEAAAAMAAIAAQABAAAAAAAMAAEAAQAAAAUAAAAMAAAAAQABAAMAAAALAAoAAQAAAAUAAAALAAkAAQABAAIAAAALAAgAAQABAAEAAAALAAcAAQABAAEAAAALAAYAAQABAAEAAAALAAUAAQABAAEAAAALAAQAAQABAAEAAAALAAMAAQABAAEAAAALAAIAAQABAAAAAAALAAEAAQAAAAUAAAALAAAAAQABAAMAAAAKAAoAAQAAAAUAAAAKAAkAAQABAAIAAAAKAAgAAQABAAEAAAAKAAcAAQABAAEAAAAKAAYAAQABAAEAAAAKAAUAAQABAAEAAAAKAAQAAQABAAEAAAAKAAMAAQABAAEAAAAKAAIAAQABAAAAAAAKAAEAAQAAAAUAAAAKAAAAAQABAAMAAAAJAAoAAQAAAAUAAAAJAAkAAQABAAIAAAAJAAgAAQABAAEAAAAJAAcAAQABAAEAAAAJAAYAAQABAAEAAAAJAAUAAQABAAEAAAAJAAQAAQABAAEAAAAJAAMAAQABAAEAAAAJAAIAAQABAAAAAAAJAAEAAQAAAAUAAAAJAAAAAQABAAMAAAAIAAoAAQAAAAUAAAAIAAkAAQABAAIAAAAIAAgAAQABAAEAAAAIAAcAAQABAAEAAAAIAAYAAQABAAEAAAAIAAUAAQABAAEAAAAIAAQAAQABAAEAAAAIAAMAAQABAAEAAAAIAAIAAQABAAAAAAAIAAEAAQAAAAUAAAAIAAAAAQABAAMAAAAHAAoAAQAAAAUAAAAHAAkAAQABAAIAAAAHAAgAAQABAAEAAAAHAAcAAQABAAEAAAAHAAYAAQABAAEAAAAHAAUAAQABAAEAAAAHAAQAAQABAAEAAAAHAAMAAQABAAEAAAAHAAIAAQABAAAAAAAHAAEAAQAAAAUAAAAHAAAAAQABAAMAAAAGAAoAAQAAAAUAAAAGAAkAAQABAAIAAAAGAAgAAQABAAEAAAAGAAcAAQABAAEAAAAGAAYAAQABAAEAAAAGAAUAAQABAAEAAAAGAAQAAQABAAEAAAAGAAMAAQABAAEAAAAGAAIAAQABAAAAAAAGAAEAAQAAAAUAAAAGAAAAAQABAAMAAAAFAAoAAQAAAAUAAAAFAAkAAQAAAAIAAAAFAAgAAQAAAAEAAAAFAAcAAQAAAAEAAAAFAAYAAQAAAAEAAAAFAAUAAQAAAAEAAAAFAAQAAQAAAAEAAAAFAAMAAQAAAAEAAAAFAAIAAQAAAAAAAAAFAAEAAQAAAAUAAAAFAAAAAQABAAMAAAAEAAoAAQAAAAUAAAAEAAkAAQACAAkAAAAEAAgAAQACAAcAAAAEAAcAAQAAAAUAAAAEAAYAAQAAAAUAAAAEAAUAAQAAAAUAAAAEAAQAAQAAAAUAAAAEAAMAAQACAAkAAAAEAAIAAQACAAcAAAAEAAEAAQAAAAUAAAAEAAAAAQABAAMAAAADAAoAAQAAAAUAAAADAAkAAQABAAkAAAADAAgAAQABAAcAAAADAAcAAQAAAAUAAAADAAYAAQAAAAUAAAADAAUAAQAAAAUAAAADAAQAAQAAAAUAAAADAAMAAQABAAkAAAADAAIAAQABAAcAAAADAAEAAQAAAAUAAAADAAAAAQABAAMAAAACAAoAAQAAAAUAAAACAAkAAQABAAkAAAACAAgAAQABAAcAAAACAAcAAQAAAAUAAAACAAYAAQAAAAUAAAACAAUAAQAAAAUAAAACAAQAAQAAAAUAAAACAAMAAQABAAkAAAACAAIAAQABAAcAAAACAAEAAQAAAAUAAAACAAAAAQABAAMAAAABAAoAAQAAAAUAAAABAAkAAQABAAkAAAABAAgAAQABAAcAAAABAAcAAQAAAAUAAAABAAYAAQAAAAUAAAABAAUAAQAAAAUAAAABAAQAAQAAAAUAAAABAAMAAQABAAkAAAABAAIAAQABAAcAAAABAAEAAQAAAAUAAAABAAAAAQABAAMAAAAAAAoAAQAAAAUAAAAAAAkAAQAAAAkAAAAAAAgAAQAAAAcAAAAAAAcAAQAAAAUAAAAAAAYAAQAAAAUAAAAAAAUAAQAAAAUAAAAAAAQAAQAAAAUAAAAAAAMAAQAAAAkAAAAAAAIAAQAAAAcAAAAAAAEAAQAAAAUAAAAAAAAAAQAAAAMAAAARAAsAAQABAAMAAAAQAAsAAQABAAMAAAAPAAsAAQABAAMAAAAOAAsAAQABAAMAAAANAAsAAQABAAMAAAAMAAsAAQABAAMAAAALAAsAAQABAAMAAAAKAAsAAQABAAMAAAAJAAsAAQABAAMAAAAIAAsAAQABAAMAAAAHAAsAAQABAAMAAAAGAAsAAQABAAMAAAAFAAsAAQABAAMAAAAEAAsAAQABAAMAAAATAAsAAQACAAMAAAASAAsAAQABAAMAAAADAAsAAQABAAMAAAACAAsAAQABAAMAAAABAAsAAQABAAMAAAAAAAsAAQAAAAMAAAA=")
-tile_set = ExtResource("2_nws1h")
-
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="CanvasLayer/LevelSelect"]
 layout_mode = 2
 
-[node name="MenuSceneButton" parent="Control" instance=ExtResource("1_wam4b")]
+[node name="MenuSceneButton" parent="CanvasLayer/LevelSelect/Control" instance=ExtResource("1_wam4b")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -42,7 +56,7 @@ grow_vertical = 0
 text = "Main Menu"
 next_scene = 1
 
-[node name="DataResetButton" parent="Control" instance=ExtResource("3_yup17")]
+[node name="DataResetButton" parent="CanvasLayer/LevelSelect/Control" instance=ExtResource("3_yup17")]
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 1
 anchors_preset = 3
@@ -60,7 +74,7 @@ text = "Clear Data
 (Cannot Undo)"
 script = ExtResource("4_xh6qr")
 
-[node name="CenterContainer" type="CenterContainer" parent="Control"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/LevelSelect/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,48 +83,47 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LevelSelect/Control/CenterContainer"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/CenterContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/PanelContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 text = "LEVEL SELECT"
 label_settings = ExtResource("1_hqyvo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="Control/CenterContainer/VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer/PanelContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2"]
 layout_mode = 2
 
-[node name="LevelContainer" parent="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
+[node name="LevelContainer" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 2
 category = "Tutorial"
 levels = Array[PackedScene]([ExtResource("3_2adev"), ExtResource("4_vl0qh"), ExtResource("5_a0y8h"), ExtResource("6_yup17"), ExtResource("7_xh6qr")])
 
-[node name="LevelContainer2" parent="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
+[node name="LevelContainer2" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
 layout_mode = 2
 category = "Easy"
-levels = Array[PackedScene]([ExtResource("10_a0y8h")])
+levels = Array[PackedScene]([ExtResource("10_a0y8h"), ExtResource("14_5gaq1"), ExtResource("15_7wq28"), ExtResource("15_mvpo0"), ExtResource("16_2ib2g")])
 
-[node name="LevelContainer3" parent="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
+[node name="LevelContainer3" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
 layout_mode = 2
 category = "Medium"
-levels = Array[PackedScene]([ExtResource("10_vl0qh")])
+levels = Array[PackedScene]([ExtResource("16_gy038")])
 
-[node name="LevelContainer4" parent="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
+[node name="LevelContainer4" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
 layout_mode = 2
 category = "Hard"
+levels = Array[PackedScene]([ExtResource("10_vl0qh"), ExtResource("17_g0fov")])
 
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@199597" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@199597" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@199598" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@199598" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@199599" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@199599" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@199600" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@199600" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@199601" to="Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer/@Button@199601" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer3/LevelSceneButton" to="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer3/LevelSceneButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer4/LevelSceneButton" to="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer4/LevelSceneButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer4/@Button@133767" to="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/LevelContainer4/@Button@133767" method="_on_pressed"]
