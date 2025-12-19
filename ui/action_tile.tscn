@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://17huhevfgy52"]
+[gd_scene load_steps=5 format=3 uid="uid://17huhevfgy52"]
 
 [ext_resource type="Script" uid="uid://drind7vr7aoqe" path="res://ui/scripts/action_tile.gd" id="1_2td78"]
 
@@ -14,8 +14,19 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2td78"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/icon.png-2d83bfc4d834e43b4a87c65afd84b942.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12clv"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_2td78")
+region = Rect2(0, 192, 64, 64)
+
 [node name="ActionTile" type="PanelContainer"]
 custom_minimum_size = Vector2(128, 128)
+offset_right = 128.0
+offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4cdjm")
 script = ExtResource("1_2td78")
 
@@ -26,6 +37,12 @@ alignment = 1
 [node name="TextLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Action"
+text = "ACCELERATE"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="IconTexture" type="TextureRect" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_12clv")
+stretch_mode = 3
