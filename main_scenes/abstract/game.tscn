@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgfikyxrkdq4y"]
+[gd_scene load_steps=9 format=3 uid="uid://bgfikyxrkdq4y"]
 
 [ext_resource type="Script" uid="uid://bnbnoulvhwwpe" path="res://main_scenes/abstract/scripts/game.gd" id="1_an34s"]
 [ext_resource type="Script" uid="uid://c7w7oup6gvr1h" path="res://game_objects/scripts/camera.gd" id="1_gehsp"]
@@ -6,6 +6,16 @@
 [ext_resource type="Script" uid="uid://72wx23wqtp5u" path="res://game_objects/scripts/map.gd" id="2_e2uy4"]
 [ext_resource type="PackedScene" uid="uid://bxeruxm8uwx5y" path="res://game_objects/car.tscn" id="3_gehsp"]
 [ext_resource type="TileSet" uid="uid://dv2v027pt8d44" path="res://resources/tilemap.tres" id="5_nstr0"]
+
+[sub_resource type="Gradient" id="Gradient_015wf"]
+offsets = PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1)
+colors = PackedColorArray(0, 0, 0.2784314, 1, 0, 0, 0.12156863, 1, 1.2349358e-07, 0, 0.29821086, 1, 0, 0, 0.27450982, 1, 0, 0, 0.2784314, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_an34s"]
+gradient = SubResource("Gradient_015wf")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(1, 1)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_an34s")
@@ -29,6 +39,24 @@ script = ExtResource("2_e2uy4")
 tile_set = ExtResource("5_nstr0")
 
 [node name="Car" parent="." instance=ExtResource("3_gehsp")]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -999
+y_sort_enabled = true
+repeat_size = Vector2(1280, 768)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 1248.0
+offset_bottom = 736.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_an34s")
+stretch_mode = 1
 
 [connection signal="goalpost_cleared" from="." to="HUD" method="_on_game_goalpost_cleared"]
 [connection signal="action_pressed" from="HUD" to="." method="_on_hud_action_pressed"]
