@@ -55,7 +55,7 @@ func _on_button_pressed(action: Car.Action) -> void:
 		new_tile.action = action
 		action_tile_container.add_child(new_tile)
 		actions_queued += 1
-		undo_button.show()
+		undo_button.disabled = false
 	_update_ap_label()
 
 func _on_undo_button_pressed() -> void:
@@ -66,13 +66,13 @@ func _on_undo_button_pressed() -> void:
 		removed_tile.queue_free()
 		actions_queued -= 1
 		if actions_queued == 0:
-			undo_button.hide()
+			undo_button.disabled = true
 	_update_ap_label()
 
 func _on_go_button_pressed() -> void:
 	_empty_action_tiles()
 	action_pressed.emit(Car.Action.DO_ACTIONS, false)
-	undo_button.hide()
+	undo_button.disabled = true
 
 func _on_camera_button_toggled(toggled_on: bool) -> void:
 	action_pressed.emit(Car.Action.CENTER_CAMERA, toggled_on)

@@ -6,8 +6,11 @@
 
 [node name="Game" instance=ExtResource("1_an58n")]
 level_name = "Baby's First Circuit"
-hint = "Braking into turns helps you tune your drift to hit tight turns.
-This is important because hitting walls entirely stops your movement and kills your momentum."
+hint = "Braking into turns helps you tune your drift
+to hit tight turns.
+This is important because hitting walls
+entirely stops your movement and
+kills your momentum."
 par = Array[int]([15, 17, 20])
 
 [node name="Layer" parent="Map" index="0"]

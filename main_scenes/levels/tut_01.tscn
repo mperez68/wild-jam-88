@@ -6,18 +6,19 @@
 
 [node name="Game" instance=ExtResource("1_bnr5k")]
 level_name = "Speed vs. Acceleration"
-hint = "Every turn you continue moving at your current speed unless changed.
+hint = "Every turn you continue moving at your current speed
+unless changed.
 You get two actions a turn to alter your speed.
 Accelerate twice every turn to cross the goalpost."
 par = Array[int]([4, 10, 20])
 
-[node name="DecelButton" parent="HUD/MarginContainer/Control/ActionBarContainer" index="1"]
+[node name="LeftButton" parent="HUD/MarginContainer/Control/ActionBarContainer" index="0"]
 disabled = true
 
-[node name="LeftButton" parent="HUD/MarginContainer/Control/ActionBarContainer" index="2"]
+[node name="DecelButton" parent="HUD/MarginContainer/Control/ActionBarContainer/VBoxContainer" index="1"]
 disabled = true
 
-[node name="RightButton" parent="HUD/MarginContainer/Control/ActionBarContainer" index="3"]
+[node name="RightButton" parent="HUD/MarginContainer/Control/ActionBarContainer" index="2"]
 disabled = true
 
 [node name="Layer" parent="Map" index="0"]

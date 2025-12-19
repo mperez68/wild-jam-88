@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cy6bp4jy8l8gd"]
+[gd_scene load_steps=25 format=4 uid="uid://cy6bp4jy8l8gd"]
 
 [ext_resource type="Script" uid="uid://b1vq6n2eai73y" path="res://main_scenes/scripts/menu.gd" id="1_2adev"]
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_hqyvo"]
@@ -26,6 +26,13 @@
 atlas = ExtResource("2_iwen1")
 region = Rect2(48, 0, 16, 16)
 margin = Rect2(-4, -4, -8, -8)
+
+[sub_resource type="InputEventKey" id="InputEventKey_iwen1"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_kmfmq"]
+events = [SubResource("InputEventKey_iwen1")]
 
 [node name="Node2D" type="Node2D"]
 
@@ -69,6 +76,7 @@ offset_top = -64.0
 offset_right = 96.0
 offset_bottom = 0.0
 grow_vertical = 0
+shortcut = SubResource("Shortcut_kmfmq")
 text = "Main Menu"
 next_scene = 1
 
@@ -115,27 +123,27 @@ vertical_alignment = 1
 [node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2"]
+[node name="LevelCategoryContainer" type="VBoxContainer" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2"]
 layout_mode = 2
 
-[node name="LevelContainer" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
+[node name="LevelContainer" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/LevelCategoryContainer" instance=ExtResource("2_wam4b")]
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 2
 category = "Tutorial"
 levels = Array[PackedScene]([ExtResource("3_2adev"), ExtResource("4_vl0qh"), ExtResource("5_a0y8h"), ExtResource("6_yup17"), ExtResource("7_xh6qr")])
 
-[node name="LevelContainer2" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
+[node name="LevelContainer2" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/LevelCategoryContainer" instance=ExtResource("2_wam4b")]
 layout_mode = 2
 category = "Easy"
 levels = Array[PackedScene]([ExtResource("10_a0y8h"), ExtResource("14_5gaq1"), ExtResource("15_7wq28"), ExtResource("15_mvpo0"), ExtResource("16_2ib2g")])
 
-[node name="LevelContainer3" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
+[node name="LevelContainer3" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/LevelCategoryContainer" instance=ExtResource("2_wam4b")]
 layout_mode = 2
 category = "Medium"
 levels = Array[PackedScene]([ExtResource("16_gy038")])
 
-[node name="LevelContainer4" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("2_wam4b")]
+[node name="LevelContainer4" parent="CanvasLayer/LevelSelect/Control/CenterContainer/VBoxContainer/PanelContainer2/LevelCategoryContainer" instance=ExtResource("2_wam4b")]
 layout_mode = 2
 category = "Hard"
 levels = Array[PackedScene]([ExtResource("10_vl0qh"), ExtResource("17_g0fov")])

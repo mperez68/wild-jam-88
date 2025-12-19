@@ -5,13 +5,15 @@
 
 [node name="Game" instance=ExtResource("1_bnr5k")]
 level_name = "Akira Ain't Shit"
-hint = "Turning doesn't kill your all your momentum, it only decelerates your sideways motion 2 tiles a turn on streets."
+hint = "Turning doesn't kill your all your momentum,
+it only decelerates your sideways motion
+by 2 tiles a turn on streets."
 par = Array[int]([4, 7, 10])
 
-[node name="DecelButton" parent="HUD/MarginContainer/Control/ActionBarContainer" index="1"]
+[node name="DecelButton" parent="HUD/MarginContainer/Control/ActionBarContainer/VBoxContainer" index="1"]
 disabled = true
 
-[node name="RightButton" parent="HUD/MarginContainer/Control/ActionBarContainer" index="3"]
+[node name="RightButton" parent="HUD/MarginContainer/Control/ActionBarContainer" index="2"]
 disabled = true
 
 [node name="Layer" parent="Map" index="0"]

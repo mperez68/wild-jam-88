@@ -1,16 +1,83 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c4wnlbd1mlp7"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c4wnlbd1mlp7"]
+
+[ext_resource type="FontFile" uid="uid://cg5kfhyqbnv1d" path="res://assets/font/batman_forever/batmfa__.ttf" id="1_d4nwg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ct1h"]
+bg_color = Color(0, 0, 0, 0.4627451)
+border_width_left = 16
+border_width_top = 4
+border_width_right = 16
+border_width_bottom = 4
+border_color = Color(0, 0, 0.105882354, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_886mr"]
+bg_color = Color(4.042983e-06, 0.34093007, 0.78541726, 0.29803923)
+border_width_left = 16
+border_width_top = 4
+border_width_right = 16
+border_width_bottom = 4
+border_color = Color(4.813075e-08, 1.4439226e-07, 0.44295985, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b751m"]
+bg_color = Color(3.657937e-06, 0.3549056, 0.815081, 0.6431373)
+border_width_left = 16
+border_width_top = 4
+border_width_right = 16
+border_width_bottom = 4
+border_color = Color(0, 0, 0.105882354, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4nwg"]
+bg_color = Color(0, 0.2, 0.4862745, 0.29803923)
+border_width_left = 16
+border_width_top = 4
+border_width_right = 16
+border_width_bottom = 4
+border_color = Color(0, 0, 0.105882354, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owntx"]
+bg_color = Color(3.6098064e-07, 0.10241412, 0.27608547, 1)
+border_width_left = 16
+border_width_top = 4
+border_width_right = 16
+border_width_bottom = 4
+border_color = Color(0, 0, 0.105882354, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tekt2"]
 content_margin_left = 32.0
 content_margin_top = 16.0
 content_margin_right = 32.0
 content_margin_bottom = 16.0
-bg_color = Color(0, 0, 0, 0.23137255)
-border_width_left = 4
-border_width_top = 2
-border_width_right = 4
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0.09411765, 0.5686275)
+border_width_left = 16
+border_width_top = 4
+border_width_right = 16
+border_width_bottom = 4
+border_color = Color(0, 0, 0.12156863, 1)
 border_blend = true
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -18,6 +85,13 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [resource]
+default_font = ExtResource("1_d4nwg")
+Button/constants/outline_size = 8
+Button/styles/disabled = SubResource("StyleBoxFlat_7ct1h")
+Button/styles/focus = SubResource("StyleBoxFlat_886mr")
+Button/styles/hover = SubResource("StyleBoxFlat_b751m")
+Button/styles/normal = SubResource("StyleBoxFlat_d4nwg")
+Button/styles/pressed = SubResource("StyleBoxFlat_owntx")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 8
 MarginContainer/constants/margin_bottom = 32

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b1k8nkraehsdk"]
+[gd_scene load_steps=11 format=4 uid="uid://b1k8nkraehsdk"]
 
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_h0qrn"]
 [ext_resource type="Script" uid="uid://b1vq6n2eai73y" path="res://main_scenes/scripts/menu.gd" id="1_mynge"]
@@ -12,6 +12,13 @@
 atlas = ExtResource("2_22x1k")
 region = Rect2(48, 0, 16, 16)
 margin = Rect2(-4, -4, -8, -8)
+
+[sub_resource type="InputEventKey" id="InputEventKey_22x1k"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_wfpcp"]
+events = [SubResource("InputEventKey_22x1k")]
 
 [node name="Node2D" type="Node2D"]
 
@@ -108,6 +115,7 @@ value = 0.8
 
 [node name="MenuSceneButton" parent="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer" instance=ExtResource("3_h0qrn")]
 layout_mode = 2
+shortcut = SubResource("Shortcut_wfpcp")
 text = "Main Menu"
 next_scene = 1
 

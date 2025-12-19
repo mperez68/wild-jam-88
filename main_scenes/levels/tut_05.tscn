@@ -6,7 +6,8 @@
 
 [node name="Game" instance=ExtResource("1_retxb")]
 level_name = "Tactical Drifting"
-hint = "Your lateral friction is determined by the tile you start on, not the tiles you're crossing."
+hint = "Your lateral friction is determined by the tile you
+start on, not the tiles you're crossing."
 par = Array[int]([10, 12, 15])
 
 [node name="Layer" parent="Map" index="0"]

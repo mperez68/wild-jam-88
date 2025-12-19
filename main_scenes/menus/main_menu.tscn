@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://5cjlja5kdgxk"]
+[gd_scene load_steps=13 format=4 uid="uid://5cjlja5kdgxk"]
 
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_7p3sw"]
 [ext_resource type="Script" uid="uid://b1vq6n2eai73y" path="res://main_scenes/scripts/menu.gd" id="1_bc2m2"]
@@ -14,6 +14,13 @@
 atlas = ExtResource("5_yy0sh")
 region = Rect2(48, 0, 16, 16)
 margin = Rect2(-4, -4, -8, -8)
+
+[sub_resource type="InputEventKey" id="InputEventKey_yy0sh"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_g8byo"]
+events = [SubResource("InputEventKey_yy0sh")]
 
 [node name="Node2D" type="Node2D"]
 
@@ -64,16 +71,20 @@ layout_mode = 2
 
 [node name="MenuSceneButton3" parent="CanvasLayer/MainMenu/Control/VBoxContainer/ButtonContainer/VBoxContainer" instance=ExtResource("1_do6qc")]
 layout_mode = 2
+focus_mode = 2
 text = "Level Select"
 next_scene = 2
 
 [node name="MenuSceneButton2" parent="CanvasLayer/MainMenu/Control/VBoxContainer/ButtonContainer/VBoxContainer" instance=ExtResource("1_do6qc")]
 layout_mode = 2
+focus_mode = 2
 text = "Options"
 next_scene = 3
 
 [node name="MenuSceneButton" parent="CanvasLayer/MainMenu/Control/VBoxContainer/ButtonContainer/VBoxContainer" instance=ExtResource("1_do6qc")]
 layout_mode = 2
+focus_mode = 2
+shortcut = SubResource("Shortcut_g8byo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

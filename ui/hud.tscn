@@ -1,60 +1,108 @@
-[gd_scene load_steps=20 format=3 uid="uid://c1hamfe2olpfm"]
+[gd_scene load_steps=34 format=3 uid="uid://c1hamfe2olpfm"]
 
 [ext_resource type="Script" uid="uid://ckg8crmjihvtg" path="res://ui/scripts/hud.gd" id="1_rbyyf"]
 [ext_resource type="PackedScene" uid="uid://dm2bnda2ccam2" path="res://ui/sfx_button.tscn" id="2_276te"]
 [ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="3_1v5rv"]
+[ext_resource type="Texture2D" uid="uid://c8n30wiml5u0m" path="res://assets/raw/icon.png" id="3_q43x7"]
 [ext_resource type="LabelSettings" uid="uid://b53icysq3n5ka" path="res://resources/header_02.tres" id="4_1v5rv"]
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="4_7ihmi"]
 [ext_resource type="PackedScene" uid="uid://d2jdhkrkrea67" path="res://ui/end_game_container.tscn" id="5_en2x2"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_en2x2"]
+[sub_resource type="InputEventKey" id="InputEventKey_spcu4"]
 device = -1
-keycode = 49
-unicode = 49
-
-[sub_resource type="Shortcut" id="Shortcut_1v5rv"]
-events = [SubResource("InputEventKey_en2x2")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_1v5rv"]
-device = -1
-keycode = 50
-unicode = 50
-
-[sub_resource type="Shortcut" id="Shortcut_q43x7"]
-events = [SubResource("InputEventKey_1v5rv")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_srpbi"]
-resource_local_to_scene = true
-device = -1
-keycode = 51
-unicode = 51
+keycode = 65
+unicode = 97
 
 [sub_resource type="Shortcut" id="Shortcut_spcu4"]
-events = [SubResource("InputEventKey_srpbi")]
+events = [SubResource("InputEventKey_spcu4")]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ff8ar"]
+load_path = "res://.godot/imported/icon.png-2d83bfc4d834e43b4a87c65afd84b942.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0eg6"]
+atlas = SubResource("CompressedTexture2D_ff8ar")
+region = Rect2(0, 128, 64, 64)
 
 [sub_resource type="InputEventKey" id="InputEventKey_q43x7"]
 device = -1
-keycode = 52
-unicode = 52
+keycode = 87
+unicode = 119
 
-[sub_resource type="Shortcut" id="Shortcut_srpbi"]
+[sub_resource type="Shortcut" id="Shortcut_1v5rv"]
 events = [SubResource("InputEventKey_q43x7")]
 
-[sub_resource type="InputEventKey" id="InputEventKey_spcu4"]
-device = -1
-keycode = 53
-unicode = 53
+[sub_resource type="AtlasTexture" id="AtlasTexture_srpbi"]
+atlas = ExtResource("3_q43x7")
+region = Rect2(0, 256, 64, 64)
 
-[sub_resource type="Shortcut" id="Shortcut_ff8ar"]
-events = [SubResource("InputEventKey_spcu4")]
+[sub_resource type="InputEventKey" id="InputEventKey_srpbi"]
+device = -1
+keycode = 83
+unicode = 115
+
+[sub_resource type="Shortcut" id="Shortcut_q43x7"]
+events = [SubResource("InputEventKey_srpbi")]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q43x7"]
+load_path = "res://.godot/imported/icon.png-2d83bfc4d834e43b4a87c65afd84b942.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spcu4"]
+atlas = SubResource("CompressedTexture2D_q43x7")
+region = Rect2(0, 192, 64, 64)
 
 [sub_resource type="InputEventKey" id="InputEventKey_ff8ar"]
 device = -1
-keycode = 71
-unicode = 103
+keycode = 68
+unicode = 100
+
+[sub_resource type="Shortcut" id="Shortcut_srpbi"]
+events = [SubResource("InputEventKey_ff8ar")]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b00kl"]
+load_path = "res://.godot/imported/icon.png-2d83bfc4d834e43b4a87c65afd84b942.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so1yu"]
+atlas = SubResource("CompressedTexture2D_b00kl")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="InputEventKey" id="InputEventKey_b00kl"]
+device = -1
+keycode = 32
+unicode = 32
 
 [sub_resource type="Shortcut" id="Shortcut_b00kl"]
-events = [SubResource("InputEventKey_ff8ar")]
+events = [SubResource("InputEventKey_b00kl")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_65xic"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_mp5xd"]
+events = [SubResource("InputEventKey_65xic")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_so1yu"]
+device = -1
+keycode = 81
+unicode = 113
+
+[sub_resource type="Shortcut" id="Shortcut_65xic"]
+events = [SubResource("InputEventKey_so1yu")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_mp5xd"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="Shortcut" id="Shortcut_u6vop"]
+events = [SubResource("InputEventKey_mp5xd")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_m0eg6"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_ff8ar"]
+events = [SubResource("InputEventKey_m0eg6")]
 
 [sub_resource type="LabelSettings" id="LabelSettings_en2x2"]
 font_size = 22
@@ -86,107 +134,123 @@ mouse_filter = 2
 
 [node name="ActionBarContainer" type="HBoxContainer" parent="MarginContainer/Control"]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 12
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -64.0
-offset_right = 336.0
+offset_top = -148.0
+grow_horizontal = 2
 grow_vertical = 0
-
-[node name="AccelButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
-layout_mode = 2
-shortcut = SubResource("Shortcut_1v5rv")
-text = "Accel"
-
-[node name="DecelButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
-layout_mode = 2
-shortcut = SubResource("Shortcut_q43x7")
-text = "Decel"
+alignment = 1
 
 [node name="LeftButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
+tooltip_text = "Turn Left"
 shortcut = SubResource("Shortcut_spcu4")
-text = "Turn
-Left"
+icon = SubResource("AtlasTexture_m0eg6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/ActionBarContainer"]
+layout_mode = 2
+
+[node name="AccelButton" parent="MarginContainer/Control/ActionBarContainer/VBoxContainer" instance=ExtResource("2_276te")]
+layout_mode = 2
+tooltip_text = "Accelerate"
+shortcut = SubResource("Shortcut_1v5rv")
+icon = SubResource("AtlasTexture_srpbi")
+
+[node name="DecelButton" parent="MarginContainer/Control/ActionBarContainer/VBoxContainer" instance=ExtResource("2_276te")]
+layout_mode = 2
+tooltip_text = "Decelerate"
+shortcut = SubResource("Shortcut_q43x7")
+icon = SubResource("AtlasTexture_spcu4")
 
 [node name="RightButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
+tooltip_text = "Turn Right"
 shortcut = SubResource("Shortcut_srpbi")
-text = "Turn
-Right"
+icon = SubResource("AtlasTexture_so1yu")
 
-[node name="UndoButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-shortcut = SubResource("Shortcut_ff8ar")
-text = "Undo"
-
-[node name="OptionsContainer" type="HBoxContainer" parent="MarginContainer/Control"]
+[node name="GoButton" parent="MarginContainer/Control" instance=ExtResource("2_276te")]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -148.0
+offset_right = 0.0
+offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
-alignment = 2
+shortcut = SubResource("Shortcut_b00kl")
+text = "GO"
+double_click = true
+
+[node name="OptionsContainer" type="VBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -145.0
+offset_bottom = 200.0
+grow_horizontal = 0
+
+[node name="MenuSceneButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("3_1v5rv")]
+layout_mode = 2
+focus_mode = 2
+shortcut = SubResource("Shortcut_mp5xd")
+text = "Level
+Select"
+next_scene = 2
 
 [node name="CameraButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
 toggle_mode = true
+shortcut = SubResource("Shortcut_65xic")
 text = "Free
 Cam"
 
 [node name="RetryButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
+shortcut = SubResource("Shortcut_u6vop")
 text = "Retry"
-
-[node name="MenuSceneButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("3_1v5rv")]
-layout_mode = 2
-text = "Main Menu"
-next_scene = 1
-
-[node name="GoButton" parent="MarginContainer/Control" instance=ExtResource("2_276te")]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -64.0
-offset_right = 32.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-shortcut = SubResource("Shortcut_b00kl")
-text = "GO"
-double_click = true
 
 [node name="ActionQueueContainer" type="PanelContainer" parent="MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -200.0
-offset_right = 68.0
-offset_bottom = -72.0
+offset_top = -160.0
+offset_right = 132.0
 grow_vertical = 0
 
 [node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/ActionQueueContainer"]
+custom_minimum_size = Vector2(96, 160)
 layout_mode = 2
 
-[node name="RemainingLabel" type="Label" parent="MarginContainer/Control/ActionQueueContainer/VBoxContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/ActionQueueContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RemainingLabel" type="Label" parent="MarginContainer/Control/ActionQueueContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 text = "2"
 label_settings = ExtResource("4_1v5rv")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="UndoButton" parent="MarginContainer/Control/ActionQueueContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_276te")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+disabled = true
+shortcut = SubResource("Shortcut_ff8ar")
+text = "Undo"
 
 [node name="ActionTileContainer" type="HBoxContainer" parent="MarginContainer/Control/ActionQueueContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -237,11 +301,11 @@ layout_mode = 2
 label_settings = SubResource("LabelSettings_en2x2")
 horizontal_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/AccelButton" to="." method="_on_button_pressed" binds= [0]]
-[connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/DecelButton" to="." method="_on_button_pressed" binds= [1]]
 [connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/LeftButton" to="." method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/VBoxContainer/AccelButton" to="." method="_on_button_pressed" binds= [0]]
+[connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/VBoxContainer/DecelButton" to="." method="_on_button_pressed" binds= [1]]
 [connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/RightButton" to="." method="_on_button_pressed" binds= [3]]
-[connection signal="pressed" from="MarginContainer/Control/ActionBarContainer/UndoButton" to="." method="_on_undo_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/GoButton" to="." method="_on_go_button_pressed"]
 [connection signal="toggled" from="MarginContainer/Control/OptionsContainer/CameraButton" to="." method="_on_camera_button_toggled"]
 [connection signal="pressed" from="MarginContainer/Control/OptionsContainer/RetryButton" to="." method="_on_retry_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Control/GoButton" to="." method="_on_go_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/ActionQueueContainer/VBoxContainer/HBoxContainer/UndoButton" to="." method="_on_undo_button_pressed"]

@@ -5,7 +5,8 @@
 
 [node name="Game" instance=ExtResource("1_j3ary")]
 level_name = "Slippery Circumstances"
-hint = "Ice doesn't slow your drift momentum but grass slows it by 3 tiles a turn."
+hint = "Ice doesn't slow your drift momentum
+but gravel slows it by 3 tiles a turn."
 par = Array[int]([5, 8, 12])
 
 [node name="Layer" parent="Map" index="0"]

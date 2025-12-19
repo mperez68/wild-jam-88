@@ -20,7 +20,6 @@ const BUTTON: PackedScene = preload("res://ui/level_scene_button.tscn")
 # ENGINE
 func _ready():
 	category = category
-	#_on_levels_list_changed()
 
 func _exit_tree() -> void:
 	if Engine.is_editor_hint():
