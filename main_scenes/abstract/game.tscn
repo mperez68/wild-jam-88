@@ -25,6 +25,7 @@ unique_name_in_owner = true
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(32, 32)
+ignore_rotation = false
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true

@@ -63,10 +63,13 @@ static func find_facing_grid_2d(start: Vector2i, end: Vector2i) -> Facing:
 static func find_facing_grid_3d(start: Vector3i, end: Vector3i) -> Facing:
 	return find_facing(Vector2(start.x, start.y), Vector2(end.x, end.y))
 
+static func facing_to_rad(facing_in: Facing) -> float:
+	return(PI / 2) * int(facing_in)
+
 
 # PRIVATE
 func _update_face():
-	rotation = (PI / 2) * int(facing)
+	rotation = facing_to_rad(facing)
 
 
 # SIGNALS

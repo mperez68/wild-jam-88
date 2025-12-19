@@ -21,10 +21,13 @@ func _process(delta: float) -> void:
 				temp += marker.position
 			temp = temp / (follow_target.next_position_markers.size() + 1)
 			position = temp
+			rotation = GridNode2D.facing_to_rad(follow_target.facing + 1)
 		else:
 			position = follow_target.position
+			rotation = 0.0
 	else:
 		position += pan_vector * delta * pan_speed
+		rotation = 0.0
 
 func _input(event: InputEvent) -> void:
 	if follow_target:

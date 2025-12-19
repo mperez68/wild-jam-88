@@ -199,7 +199,7 @@ grow_horizontal = 0
 
 [node name="MenuSceneButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("3_1v5rv")]
 layout_mode = 2
-focus_mode = 2
+focus_mode = 0
 shortcut = SubResource("Shortcut_mp5xd")
 text = "Level
 Select"
@@ -207,6 +207,7 @@ next_scene = 2
 
 [node name="CameraButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
+focus_mode = 0
 toggle_mode = true
 shortcut = SubResource("Shortcut_65xic")
 text = "Free
@@ -214,6 +215,7 @@ Cam"
 
 [node name="RetryButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
+focus_mode = 0
 shortcut = SubResource("Shortcut_u6vop")
 text = "Retry"
 

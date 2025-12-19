@@ -154,6 +154,7 @@ func _on_hud_action_pressed(action: Action, undo: bool) -> void:
 			_center_camera(undo)
 
 func _on_end_game(_turns: int, _par: Array[int]):
+	_center_camera(true)
 	speed = Vector3i.ZERO
 	action_queue = [Action.TURN_RIGHT, Action.TURN_RIGHT, Action.TURN_RIGHT, Action.TURN_RIGHT,
 			Action.TURN_RIGHT, Action.TURN_RIGHT, Action.TURN_RIGHT, Action.TURN_RIGHT]
