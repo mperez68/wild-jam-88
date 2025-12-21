@@ -1,7 +1,7 @@
 @tool
 class_name MenuSceneButton extends SceneButton
 
-enum Scene{ QUIT, MAIN_MENU, LEVEL_SELECT, OPTIONS }
+enum Scene{ QUIT, MAIN_MENU, LEVEL_SELECT, OPTIONS, CREDITS }
 
 @export var next_scene: Scene:
 	set(value):
@@ -28,6 +28,8 @@ func _get_scene(scene: Scene) -> PackedScene:
 			ret = load("res://main_scenes/menus/level_select.tscn")
 		Scene.OPTIONS:
 			ret = load("res://main_scenes/menus/options.tscn")
+		Scene.CREDITS:
+			ret = load("res://main_scenes/menus/credits.tscn")
 	return ret
 
 

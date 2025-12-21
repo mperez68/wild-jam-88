@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=4 uid="uid://bm6434yuct6b8"]
+
+[ext_resource type="TileSet" uid="uid://dv2v027pt8d44" path="res://resources/tilemap.tres" id="1_co4ec"]
+[ext_resource type="LabelSettings" uid="uid://cxppay2ommgyb" path="res://resources/title.tres" id="2_8abyn"]
+[ext_resource type="PackedScene" uid="uid://bxeruxm8uwx5y" path="res://game_objects/car.tscn" id="3_5w2xo"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5w2xo"]
+load_path = "res://.godot/imported/icon.png-2d83bfc4d834e43b4a87c65afd84b942.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lx1x"]
+atlas = SubResource("CompressedTexture2D_5w2xo")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1m56"]
+atlas = SubResource("CompressedTexture2D_5w2xo")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsk5t"]
+atlas = SubResource("CompressedTexture2D_5w2xo")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w65fh"]
+atlas = SubResource("CompressedTexture2D_5w2xo")
+region = Rect2(0, 256, 64, 64)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAwACAAUAAAABAAAAAwAAAAoAAAABAAEAAwAAABAAAAACAAEAAwABAAsAAAADAAIAAwABAAsAAAAEAAIAAwABAAsAAAAFAAIAAwABAAsAAAAGAAMAAwABAAsAAAAHAAMAAwABAAsAAAAHAAQAAwABAAsAAAAJAAUAAwAAAAcAAAAJAAQAAwAAAAYAAAAJAAMAAwAAAAYAAAAJAAIAAwAAAAYAAAAJAAEAAwAAAAYAAAAJAAAAAwAAAAUAAAAIAAUAAwACAAwAAAAIAAQAAwACAAsAAAAIAAMAAwACAAsAAAAIAAIAAwACABAAAAAIAAEAAwACAAsAAAAIAAAAAwACABQAAAAHAAUAAwABAAwAAAAHAAIAAwABAAsAAAAHAAEAAwABAAsAAAAHAAAAAwABAAoAAAAGAAUAAwABABEAAAAGAAQAAwABAAsAAAAGAAIAAwABAAsAAAAGAAEAAwABAAsAAAAGAAAAAwABABQAAAAFAAUAAwABABEAAAAFAAQAAwABAAsAAAAFAAMAAwABAAsAAAAFAAEAAwABAAsAAAAFAAAAAwABABQAAAAEAAUAAwABABYAAAAEAAQAAwABAAsAAAAEAAMAAwABAAsAAAAEAAEAAwABAAsAAAAEAAAAAwABAA8AAAADAAUAAwABABEAAAADAAQAAwABAAsAAAADAAMAAwABAAsAAAADAAEAAwABAAsAAAADAAAAAwABAA8AAAACAAUAAwABABEAAAACAAQAAwABAAsAAAACAAMAAwABAAsAAAACAAIAAwABAAsAAAACAAAAAwABABQAAAABAAUAAwAAABEAAAABAAQAAwAAABAAAAABAAMAAwAAABUAAAABAAIAAwAAABUAAAAAAAUAAwACAAcAAAAAAAQAAwACAAYAAAAAAAMAAwACAAYAAAAAAAIAAwACAAYAAAAAAAEAAwACAAYAAAD//wUAAwAAAAcAAAD//wQAAwAAAAYAAAD//wMAAwAAAAYAAAD//wIAAwAAAAYAAAD//wEAAwAAAAYAAAD//wAAAwAAAAUAAAAKAAUAAwACAAcAAAAKAAQAAwACAAYAAAAKAAMAAwACAAYAAAAKAAIAAwACAAYAAAAKAAEAAwACAAYAAAAKAAAAAwACAAUAAAA=")
+tile_set = ExtResource("1_co4ec")
+
+[node name="Car" parent="." instance=ExtResource("3_5w2xo")]
+position = Vector2(246.00002, 44)
+scale = Vector2(1.8, 1.8)
+script = null
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(4, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -481.5
+offset_top = -322.5
+offset_right = 481.5
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SPLIT
+SECOND"
+label_settings = ExtResource("2_8abyn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -274.0
+offset_right = -852.0
+offset_bottom = -210.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3, 3)
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_8lx1x")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_k1m56")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_wsk5t")
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_w65fh")

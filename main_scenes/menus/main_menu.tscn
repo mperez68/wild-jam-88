@@ -1,6 +1,5 @@
 [gd_scene load_steps=13 format=4 uid="uid://5cjlja5kdgxk"]
 
-[ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_7p3sw"]
 [ext_resource type="Script" uid="uid://b1vq6n2eai73y" path="res://main_scenes/scripts/menu.gd" id="1_bc2m2"]
 [ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="1_do6qc"]
 [ext_resource type="Script" uid="uid://bdthsn7hva42i" path="res://game_objects/scripts/game_title_label.gd" id="2_ayvsf"]
@@ -14,6 +13,12 @@
 atlas = ExtResource("5_yy0sh")
 region = Rect2(48, 0, 16, 16)
 margin = Rect2(-4, -4, -8, -8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_himie"]
+font_size = 85
+font_color = Color(0.6968204, 0.9999997, 0.9954528, 1)
+outline_size = 32
+outline_color = Color(0, 0.27852723, 0.5022289, 1)
 
 [sub_resource type="InputEventKey" id="InputEventKey_yy0sh"]
 device = -1
@@ -60,7 +65,7 @@ layout_mode = 2
 [node name="GameTitleLabel" type="Label" parent="CanvasLayer/MainMenu/Control/VBoxContainer/TitleContainer"]
 layout_mode = 2
 text = "WORKING TITLE"
-label_settings = ExtResource("1_7p3sw")
+label_settings = SubResource("LabelSettings_himie")
 script = ExtResource("2_ayvsf")
 
 [node name="ButtonContainer" type="PanelContainer" parent="CanvasLayer/MainMenu/Control/VBoxContainer"]
@@ -80,6 +85,11 @@ layout_mode = 2
 focus_mode = 2
 text = "Options"
 next_scene = 3
+
+[node name="MenuSceneButton4" parent="CanvasLayer/MainMenu/Control/VBoxContainer/ButtonContainer/VBoxContainer" instance=ExtResource("1_do6qc")]
+layout_mode = 2
+text = "Credits"
+next_scene = 4
 
 [node name="MenuSceneButton" parent="CanvasLayer/MainMenu/Control/VBoxContainer/ButtonContainer/VBoxContainer" instance=ExtResource("1_do6qc")]
 layout_mode = 2

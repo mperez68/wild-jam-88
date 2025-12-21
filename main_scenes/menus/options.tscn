@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b1k8nkraehsdk"]
+[gd_scene load_steps=13 format=4 uid="uid://b1k8nkraehsdk"]
 
 [ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_h0qrn"]
 [ext_resource type="Script" uid="uid://b1vq6n2eai73y" path="res://main_scenes/scripts/menu.gd" id="1_mynge"]
@@ -7,6 +7,8 @@
 [ext_resource type="LabelSettings" uid="uid://b53icysq3n5ka" path="res://resources/header_02.tres" id="2_mynge"]
 [ext_resource type="Script" uid="uid://dwtgjnff0r5si" path="res://ui/scripts/volume_container.gd" id="3_fp2u5"]
 [ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="3_h0qrn"]
+[ext_resource type="PackedScene" uid="uid://dm2bnda2ccam2" path="res://ui/sfx_button.tscn" id="7_1si6u"]
+[ext_resource type="Script" uid="uid://bkml5bhbevs7" path="res://ui/scripts/full_screen_button.gd" id="8_a73eu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wfpcp"]
 atlas = ExtResource("2_22x1k")
@@ -52,6 +54,7 @@ script = ExtResource("1_mynge")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Options"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Options/CenterContainer"]
 layout_mode = 2
@@ -113,8 +116,30 @@ max_value = 1.0
 step = 0.1
 value = 0.8
 
-[node name="MenuSceneButton" parent="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer" instance=ExtResource("3_h0qrn")]
+[node name="FullScreenButton" parent="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer" instance=ExtResource("7_1si6u")]
 layout_mode = 2
+toggle_mode = true
+text = "FULLSCREEN"
+script = ExtResource("8_a73eu")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 1264.0
+offset_bottom = 736.0
+mouse_filter = 2
+
+[node name="MenuSceneButton" parent="CanvasLayer/Control" instance=ExtResource("3_h0qrn")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 145.0
+offset_bottom = 0.0
+grow_vertical = 0
 shortcut = SubResource("Shortcut_wfpcp")
 text = "Main Menu"
 next_scene = 1
@@ -122,3 +147,4 @@ next_scene = 1
 [connection signal="value_changed" from="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer/MasterSlider" to="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer" method="_on_slider_value_changed" binds= ["Master"]]
 [connection signal="value_changed" from="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer/MusicSlider" to="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer" method="_on_slider_value_changed" binds= ["Music"]]
 [connection signal="value_changed" from="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer/SfxSlider" to="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer" method="_on_slider_value_changed" binds= ["Sfx"]]
+[connection signal="toggled" from="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer/FullScreenButton" to="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer/FullScreenButton" method="_on_toggled"]

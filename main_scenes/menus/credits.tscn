@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=4 uid="uid://dv4n7jbgukqdm"]
+
+[ext_resource type="LabelSettings" uid="uid://b4esuhrdi6585" path="res://resources/header_01.tres" id="1_gvhnr"]
+[ext_resource type="Script" uid="uid://b1vq6n2eai73y" path="res://main_scenes/scripts/menu.gd" id="1_lv5j1"]
+[ext_resource type="TileSet" uid="uid://dv2v027pt8d44" path="res://resources/tilemap.tres" id="2_lv5j1"]
+[ext_resource type="Script" uid="uid://c7w7oup6gvr1h" path="res://game_objects/scripts/camera.gd" id="2_o0f7k"]
+[ext_resource type="Texture2D" uid="uid://bd3bddpnfj83j" path="res://assets/sprites/outlines.png" id="3_0grwb"]
+[ext_resource type="PackedScene" uid="uid://dffco7x5lxwgg" path="res://ui/menu_scene_button.tscn" id="4_kpvpm"]
+[ext_resource type="PackedScene" uid="uid://bxeruxm8uwx5y" path="res://game_objects/car.tscn" id="6_46tvs"]
+[ext_resource type="Script" uid="uid://44u2t3jv5nr6" path="res://main_scenes/scripts/hyperlink_rich_text_label.gd" id="6_kpvpm"]
+[ext_resource type="Texture2D" uid="uid://dgaysr0gn3sac" path="res://icon.svg" id="7_16f6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyiyj"]
+atlas = ExtResource("3_0grwb")
+region = Rect2(48, 0, 16, 16)
+margin = Rect2(-4, -4, -8, -8)
+
+[node name="Credits" type="Node2D"]
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(2, 2)
+script = ExtResource("2_o0f7k")
+metadata/_custom_type_script = "uid://c7w7oup6gvr1h"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAATAAsAAwABAAUAAAATAAoAAwABAAIAAAATAAkAAwABAAAAAAATAAgAAwACABwAAAATAAcAAwABABYAAAATAAYAAwABAAsAAAATAAUAAwAGAAwAAAATAAMAAwAAAAoAAAATAAIAAwABAAIAAAATAAEAAwABAAAAAAATAAAAAwABAAcAAAASAAsAAwABAAUAAAASAAoAAwABAAIAAAASAAkAAwABAAAAAAASAAgAAwAAABwAAAASAAcAAwABABYAAAASAAYAAwABAAsAAAASAAUAAwABAAoAAAASAAQAAwADABsAAAASAAMAAwAHABkAAAASAAIAAwABAAIAAAASAAEAAwABAAAAAAASAAAAAwABAAcAAAARAAsAAwABAAUAAAARAAoAAwABAAIAAAARAAkAAwABAAAAAAARAAgAAwACABEAAAARAAcAAwAFAAsAAAARAAYAAwABAAsAAAARAAUAAwAFAAwAAAARAAQAAwACABQAAAARAAMAAwAAABwAAAARAAIAAwABAAIAAAARAAEAAwABAAAAAAARAAAAAwABAAcAAAAQAAsAAwABAAUAAAAQAAoAAwABAAIAAAAQAAkAAwABAAAAAAAQAAgAAwAAAAwAAAAQAAcAAwAAAAsAAAAQAAYAAwAGAAsAAAAQAAUAAwABAAsAAAAQAAQAAwAFAAwAAAAQAAMAAwACAA8AAAAQAAIAAwABAAIAAAAQAAEAAwABAAAAAAAQAAAAAwABAAcAAAAPAAsAAwABAAUAAAAPAAoAAwABAAIAAAAPAAkAAwABAAAAAAAPAAgAAwAHABwAAAAPAAcAAwADABkAAAAPAAYAAwABABYAAAAPAAUAAwABAAsAAAAPAAMAAwABABQAAAAPAAIAAwABAAIAAAAPAAEAAwABAAAAAAAPAAAAAwABAAcAAAAOAAsAAwABAAUAAAAOAAoAAwABAAIAAAAOAAkAAwABAAAAAAAOAAgAAwAAABwAAAAOAAcAAwACAAwAAAAOAAYAAwAFAAsAAAAOAAUAAwABAAsAAAAOAAMAAwAAAA8AAAAOAAIAAwABAAIAAAAOAAEAAwABAAAAAAAOAAAAAwABAAcAAAANAAsAAwABAAUAAAANAAoAAwABAAIAAAANAAkAAwABAAAAAAANAAgAAwACABYAAAANAAcAAwAFAAsAAAANAAYAAwABAAsAAAANAAUAAwAGAAwAAAANAAQAAwAAAA8AAAANAAMAAwACABwAAAANAAIAAwABAAIAAAANAAEAAwABAAAAAAANAAAAAwABAAcAAAAMAAsAAwABAAUAAAAMAAoAAwABAAIAAAAMAAkAAwABAAAAAAAMAAgAAwABABYAAAAMAAcAAwABAAsAAAAMAAYAAwABAAsAAAAMAAUAAwABAA8AAAAMAAQAAwADABsAAAAMAAMAAwAEABkAAAAMAAIAAwABAAIAAAAMAAEAAwABAAAAAAAMAAAAAwABAAcAAAALAAsAAwABAAUAAAALAAoAAwABAAIAAAALAAkAAwABAAAAAAALAAgAAwAAABYAAAALAAcAAwAGAAsAAAALAAYAAwABAAsAAAALAAQAAwACABUAAAALAAMAAwACABQAAAALAAIAAwABAAIAAAALAAEAAwABAAAAAAALAAAAAwABAAcAAAAKAAsAAwABAAUAAAAKAAoAAwABAAIAAAAKAAkAAwABAAAAAAAKAAgAAwACABwAAAAKAAcAAwABABEAAAAKAAYAAwABAAsAAAAKAAUAAwABAAsAAAAKAAQAAwAGAAwAAAAKAAMAAwAAAAoAAAAKAAIAAwABAAIAAAAKAAEAAwABAAAAAAAKAAAAAwABAAcAAAAJAAsAAwABAAUAAAAJAAoAAwABAAIAAAAJAAkAAwABAAAAAAAJAAgAAwABABwAAAAJAAcAAwABAAwAAAAJAAYAAwABAAsAAAAJAAUAAwABAAsAAAAJAAQAAwABAAoAAAAJAAMAAwADABwAAAAJAAIAAwABAAIAAAAJAAEAAwABAAAAAAAJAAAAAwABAAcAAAAIAAsAAwABAAUAAAAIAAoAAwABAAIAAAAIAAkAAwABAAAAAAAIAAgAAwABABwAAAAIAAcAAwABABEAAAAIAAYAAwABAAsAAAAIAAUAAwABAAsAAAAIAAMAAwADAAoAAAAIAAIAAwABAAIAAAAIAAEAAwABAAAAAAAIAAAAAwABAAcAAAAHAAsAAwABAAUAAAAHAAoAAwABAAIAAAAHAAkAAwABAAAAAAAHAAgAAwAAABwAAAAHAAcAAwABABEAAAAHAAYAAwABAAsAAAAHAAUAAwABAAsAAAAHAAQAAwABAAoAAAAHAAMAAwACABwAAAAHAAIAAwABAAIAAAAHAAEAAwABAAAAAAAHAAAAAwABAAcAAAAGAAsAAwABAAUAAAAGAAoAAwABAAIAAAAGAAkAAwABAAAAAAAGAAgAAwADAAwAAAAGAAcAAwAIAAsAAAAGAAYAAwABAAsAAAAGAAUAAwABAAsAAAAGAAQAAwABABQAAAAGAAMAAwABABwAAAAGAAIAAwABAAIAAAAGAAEAAwABAAAAAAAGAAAAAwABAAcAAAAFAAsAAwABAAUAAAAFAAoAAwABAAIAAAAFAAkAAwABAAAAAAAFAAgAAwACABwAAAAFAAYAAwABAAsAAAAFAAQAAwABABQAAAAFAAMAAwAAABwAAAAFAAIAAwABAAIAAAAFAAEAAwABAAAAAAAFAAAAAwABAAcAAAAEAAsAAwABAAUAAAAEAAoAAwABAAIAAAAEAAkAAwABAAAAAAAEAAgAAwABABwAAAAEAAcAAwABABYAAAAEAAYAAwABAAsAAAAEAAUAAwAGAAwAAAAEAAQAAwAEAAwAAAAEAAMAAwAHAAoAAAAEAAIAAwABAAIAAAAEAAEAAwABAAAAAAAEAAAAAwABAAcAAAADAAsAAwABAAUAAAADAAoAAwABAAIAAAADAAkAAwABAAAAAAADAAgAAwAAABwAAAADAAcAAwABABEAAAADAAYAAwABAAsAAAADAAUAAwABAA8AAAADAAQAAwADABwAAAADAAMAAwABABcAAAADAAIAAwABAAIAAAADAAEAAwABAAAAAAADAAAAAwABAAcAAAACAAsAAwABAAUAAAACAAoAAwABAAIAAAACAAkAAwABAAAAAAACAAcAAwAEABUAAAACAAYAAwAGAAsAAAACAAUAAwAFAAwAAAACAAQAAwAHABEAAAACAAMAAwAEABQAAAACAAIAAwABAAIAAAACAAEAAwABAAAAAAACAAAAAwABAAcAAAABAAsAAwABAAUAAAABAAoAAwABAAIAAAABAAkAAwABAAAAAAABAAgAAwAHABwAAAABAAcAAwADABkAAAABAAYAAwABABYAAAABAAUAAwABAAsAAAABAAMAAwADABwAAAABAAIAAwABAAIAAAABAAEAAwABAAAAAAABAAAAAwABAAcAAAAAAAsAAwABAAUAAAAAAAoAAwABAAIAAAAAAAkAAwABAAAAAAAAAAgAAwAAABwAAAAAAAcAAwACABYAAAAAAAYAAwAFAAsAAAAAAAUAAwABAAsAAAAAAAQAAwAFAAwAAAAAAAMAAwACAAoAAAAAAAIAAwABAAIAAAAAAAEAAwABAAAAAAAAAAAAAwABAAcAAAAUAAAAAwACAAcAAAAUAP//AwACAAUAAAATAP//AwABAAUAAAASAP//AwABAAUAAAARAP//AwABAAUAAAAQAP//AwABAAUAAAAPAP//AwABAAUAAAAOAP//AwABAAUAAAANAP//AwABAAUAAAAMAP//AwABAAUAAAALAP//AwABAAUAAAAKAP//AwABAAUAAAAJAP//AwABAAUAAAAIAP//AwABAAUAAAAHAP//AwABAAUAAAAGAP//AwABAAUAAAAFAP//AwABAAUAAAAEAP//AwABAAUAAAADAP//AwABAAUAAAACAP//AwABAAUAAAABAP//AwABAAUAAAAAAP//AwABAAUAAAD//wAAAwAAAAcAAAD/////AwAAAAUAAAAUAAwAAwACAAcAAAAUAAsAAwACAAUAAAAUAAoAAwACAAIAAAAUAAkAAwACAAAAAAAUAAgAAwADABEAAAAUAAcAAwAHAAsAAAAUAAYAAwACABUAAAAUAAUAAwACABUAAAAUAAQAAwACABAAAAAUAAMAAwACAA8AAAAUAAIAAwACAAIAAAAUAAEAAwACAAAAAAATAAwAAwABAAcAAAASAAwAAwABAAcAAAARAAwAAwABAAcAAAAQAAwAAwABAAcAAAAPAAwAAwABAAcAAAAOAAwAAwABAAcAAAANAAwAAwABAAcAAAAMAAwAAwABAAcAAAALAAwAAwABAAcAAAAKAAwAAwABAAcAAAAJAAwAAwABAAcAAAAIAAwAAwABAAcAAAAHAAwAAwABAAcAAAAGAAwAAwABAAcAAAAFAAwAAwABAAcAAAAEAAwAAwABAAcAAAADAAwAAwABAAcAAAACAAwAAwABAAcAAAABAAwAAwABAAcAAAAAAAwAAwABAAcAAAD//wwAAwAAAAcAAAD//wsAAwAAAAUAAAD//woAAwAAAAIAAAD//wkAAwAAAAAAAAD//wgAAwADABYAAAD//wcAAwAEAAsAAAD//wYAAwAAAAsAAAD//wUAAwAAABUAAAD//wQAAwAAAAsAAAD//wMAAwAAABQAAAD//wIAAwAAAAIAAAD//wEAAwAAAAAAAAAPAAQAAwABAAsAAAAOAAQAAwAGAAwAAAAIAAQAAwAIAAwAAAALAAUAAwAFAAwAAAAFAAUAAwABAAsAAAAFAAcAAwABABYAAAACAAgAAwADABYAAAABAAQAAwABABQAAAATAAQAAwAAAAsAAAA=")
+tile_set = ExtResource("2_lv5j1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(0.25882354, 0.25882354, 0.25882354, 0.34117648)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_lyiyj")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lv5j1")
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="MenuSceneButton" parent="CanvasLayer/MarginContainer/Control" instance=ExtResource("4_kpvpm")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 145.0
+offset_bottom = 0.0
+grow_vertical = 0
+text = "Main Menu"
+next_scene = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "THANKS FOR PLAYING"
+label_settings = ExtResource("1_gvhnr")
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Art, Music, Programming, Design by
+[url=https://linktr.ee/GEIST_COMM]GEIST_COMM_GAMES[/url]
+
+TOOLS:
+Ableton Live
+Audacity
+Massive Sound Library
+Aseprite
+Tilesetter
+
+Samples sourced from [url=https://freesound.org/]FreeSound.org[/url]
+
+Shoutout to the Godot Seattle Discord Group for playtesting and feedback
+[/center]"
+fit_content = true
+script = ExtResource("6_kpvpm")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("7_16f6h")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+text = "MADE WITH GODOT 4.5"
+horizontal_alignment = 1
+
+[node name="Car" parent="." instance=ExtResource("6_46tvs")]
+position = Vector2(400, 272)
+grid_3d_position = Vector3i(12, 8, 0)
+
+[connection signal="meta_clicked" from="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/RichTextLabel" to="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/RichTextLabel" method="_on_meta_clicked"]
