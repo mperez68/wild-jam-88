@@ -39,23 +39,14 @@ func _ready():
 
 # PUBLIC
 func accelerate(value: int, undo: bool = false):
-	if !undo:
-		animation.play("idle")
-		animation.play("forward")
 	speed += get_facing_vector_3d() * value * (-1 if undo else 1)
 	project_actions()
 
 func decelerate(value: int, undo: bool = false):
-	if !undo:
-		animation.play("idle")
-		animation.play("slow")
 	speed -= get_facing_vector_3d() * value * (-1 if undo else 1)
 	project_actions()
 
 func turn(right: bool, undo: bool = false):
-	if !undo:
-		animation.play("idle")
-		animation.play("right" if right else "left")
 	var new_facing: int = (facing + ( (1 if right else -1) * (-1 if undo else 1) )) % Facing.size()
 	if new_facing < 0:
 		new_facing += Facing.size()
@@ -72,6 +63,7 @@ func do_actions():
 		speed = Vector3i.ZERO
 		# TODO sfx for crashing into walls
 	car_moved.emit(self, grid_3d_position, new_position)
+	_animate_move(new_position)
 	grid_3d_position = new_position
 	project_actions()
 	if debug_positions:
@@ -131,6 +123,9 @@ func _get_forces(include_speed: bool = false, start_speed: Vector3i = speed, sta
 
 func _center_camera(cancel: bool):
 	SignalBus.center_camera.emit(null if cancel else self)
+
+func _animate_move(_new_position: Vector3i):
+	animation.play("forward")	# TODO change for drift or reverse
 
 
 # SIGNALS

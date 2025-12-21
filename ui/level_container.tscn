@@ -6,10 +6,9 @@
 [node name="LevelContainer" type="HBoxContainer"]
 offset_right = 192.0
 offset_bottom = 64.0
-size_flags_horizontal = 0
+size_flags_horizontal = 2
 size_flags_vertical = 0
 script = ExtResource("1_n7oat")
-grabs_focus = null
 
 [node name="TitleLabel" type="Label" parent="."]
 unique_name_in_owner = true

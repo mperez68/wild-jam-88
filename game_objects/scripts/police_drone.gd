@@ -1,11 +1,12 @@
 class_name PoliceDrone extends Node2D
 
-const FRICTION: float = 0.8
+const FRICTION: float = 0.4
 
 @export var accel_speed: float = 1.0
 @export var tolerance: float  = 32.0
 @export var velocity: Vector2 = Vector2.ZERO
 @export var target: Vector2 = Vector2.ZERO
+
 
 # ENGINE
 func _ready():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c1hamfe2olpfm"]
+[gd_scene load_steps=32 format=3 uid="uid://c1hamfe2olpfm"]
 
 [ext_resource type="Script" uid="uid://ckg8crmjihvtg" path="res://ui/scripts/hud.gd" id="1_rbyyf"]
 [ext_resource type="PackedScene" uid="uid://dm2bnda2ccam2" path="res://ui/sfx_button.tscn" id="2_276te"]
@@ -16,11 +16,8 @@ unicode = 97
 [sub_resource type="Shortcut" id="Shortcut_spcu4"]
 events = [SubResource("InputEventKey_spcu4")]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ff8ar"]
-load_path = "res://.godot/imported/icon.png-2d83bfc4d834e43b4a87c65afd84b942.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_m0eg6"]
-atlas = SubResource("CompressedTexture2D_ff8ar")
+atlas = ExtResource("3_q43x7")
 region = Rect2(0, 128, 64, 64)
 
 [sub_resource type="InputEventKey" id="InputEventKey_q43x7"]
@@ -43,11 +40,8 @@ unicode = 115
 [sub_resource type="Shortcut" id="Shortcut_q43x7"]
 events = [SubResource("InputEventKey_srpbi")]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q43x7"]
-load_path = "res://.godot/imported/icon.png-2d83bfc4d834e43b4a87c65afd84b942.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_spcu4"]
-atlas = SubResource("CompressedTexture2D_q43x7")
+atlas = ExtResource("3_q43x7")
 region = Rect2(0, 192, 64, 64)
 
 [sub_resource type="InputEventKey" id="InputEventKey_ff8ar"]
@@ -58,11 +52,8 @@ unicode = 100
 [sub_resource type="Shortcut" id="Shortcut_srpbi"]
 events = [SubResource("InputEventKey_ff8ar")]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b00kl"]
-load_path = "res://.godot/imported/icon.png-2d83bfc4d834e43b4a87c65afd84b942.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_so1yu"]
-atlas = SubResource("CompressedTexture2D_b00kl")
+atlas = ExtResource("3_q43x7")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="InputEventKey" id="InputEventKey_b00kl"]
@@ -103,6 +94,10 @@ unicode = 101
 
 [sub_resource type="Shortcut" id="Shortcut_ff8ar"]
 events = [SubResource("InputEventKey_m0eg6")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q43x7"]
+atlas = ExtResource("3_q43x7")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="LabelSettings" id="LabelSettings_en2x2"]
 font_size = 22
@@ -148,6 +143,7 @@ layout_mode = 2
 tooltip_text = "Turn Left"
 shortcut = SubResource("Shortcut_spcu4")
 icon = SubResource("AtlasTexture_m0eg6")
+icon_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/ActionBarContainer"]
 layout_mode = 2
@@ -157,18 +153,21 @@ layout_mode = 2
 tooltip_text = "Accelerate"
 shortcut = SubResource("Shortcut_1v5rv")
 icon = SubResource("AtlasTexture_srpbi")
+icon_alignment = 1
 
 [node name="DecelButton" parent="MarginContainer/Control/ActionBarContainer/VBoxContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
 tooltip_text = "Decelerate"
 shortcut = SubResource("Shortcut_q43x7")
 icon = SubResource("AtlasTexture_spcu4")
+icon_alignment = 1
 
 [node name="RightButton" parent="MarginContainer/Control/ActionBarContainer" instance=ExtResource("2_276te")]
 layout_mode = 2
 tooltip_text = "Turn Right"
 shortcut = SubResource("Shortcut_srpbi")
 icon = SubResource("AtlasTexture_so1yu")
+icon_alignment = 1
 
 [node name="GoButton" parent="MarginContainer/Control" instance=ExtResource("2_276te")]
 custom_minimum_size = Vector2(128, 128)
@@ -201,8 +200,7 @@ grow_horizontal = 0
 layout_mode = 2
 focus_mode = 0
 shortcut = SubResource("Shortcut_mp5xd")
-text = "Level
-Select"
+text = "Level Select"
 next_scene = 2
 
 [node name="CameraButton" parent="MarginContainer/Control/OptionsContainer" instance=ExtResource("2_276te")]
@@ -253,6 +251,8 @@ size_flags_vertical = 3
 disabled = true
 shortcut = SubResource("Shortcut_ff8ar")
 text = "Undo"
+icon = SubResource("AtlasTexture_q43x7")
+icon_alignment = 1
 
 [node name="ActionTileContainer" type="HBoxContainer" parent="MarginContainer/Control/ActionQueueContainer/VBoxContainer"]
 unique_name_in_owner = true

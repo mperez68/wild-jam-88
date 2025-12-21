@@ -82,7 +82,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
-step = 0.2
+step = 0.1
 value = 0.8
 
 [node name="Label2" type="Label" parent="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer"]
@@ -96,7 +96,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
-step = 0.2
+step = 0.1
 value = 0.8
 
 [node name="Label3" type="Label" parent="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer"]
@@ -110,7 +110,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
-step = 0.2
+step = 0.1
 value = 0.8
 
 [node name="MenuSceneButton" parent="CanvasLayer/Options/CenterContainer/VBoxContainer/PanelContainer2/VolumeContainer" instance=ExtResource("3_h0qrn")]

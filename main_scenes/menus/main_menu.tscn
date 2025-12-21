@@ -104,23 +104,13 @@ grid_3d_position = Vector3i(1, 4, 0)
 facing = 1
 
 [node name="PoliceDrone" parent="." instance=ExtResource("7_vb3i7")]
-position = Vector2(695, 382)
-
-[node name="PoliceDrone4" parent="." instance=ExtResource("7_vb3i7")]
-position = Vector2(-61, -58)
+position = Vector2(-25, -51)
 
 [node name="PoliceDrone2" parent="." instance=ExtResource("7_vb3i7")]
-position = Vector2(454, -57)
-accel_speed = 0.5
-
-[node name="PoliceDrone5" parent="." instance=ExtResource("7_vb3i7")]
-position = Vector2(196, 428)
-accel_speed = 0.5
+position = Vector2(662, -32)
 
 [node name="PoliceDrone3" parent="." instance=ExtResource("7_vb3i7")]
-position = Vector2(-45, 421)
-accel_speed = 0.25
+position = Vector2(672, 415)
 
-[node name="PoliceDrone6" parent="." instance=ExtResource("7_vb3i7")]
-position = Vector2(731, -19)
-accel_speed = 0.25
+[node name="PoliceDrone4" parent="." instance=ExtResource("7_vb3i7")]
+position = Vector2(-45, 418)
